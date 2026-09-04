@@ -1,0 +1,32 @@
+{
+  "name": "fayezc-website",
+  "version": "0.1.0",
+  "description": "Chi (Faye) Zhang's personal academic homepage",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "sprites": "node scripts/make-sprites.mjs",
+    "email": "node scripts/encode-email.mjs",
+    "fonts": "node scripts/subset-font.mjs",
+    "check:layout": "node scripts/check-layout.mjs",
+    "cv:sync": "git -C cv-source pull --ff-only",
+    "cv:pdf": "node scripts/build-cv.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FayeZC/FayeZC.github.io.git"
+  },
+  "author": "Chi (Faye) Zhang",
+  "license": "MIT",
+  "dependencies": {
+    "astro": "^7.2.4"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1",
+    "sharp": "^0.35.3"
+  }
+}

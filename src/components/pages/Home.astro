@@ -1,0 +1,165 @@
+---
+import Base from '../../layouts/Base.astro'
+import EmailReveal from '../EmailReveal.astro'
+import { profile, education, interests, ongoingProjects, news, members } from '../../data/site.js'
+import { ui, pick, localizePath } from '../../i18n/index.js'
+import { sprite, photo } from '../../lib/sprite.js'
+
+const { lang } = Astro.props
+const t = ui[lang]
+const latestNews = news.slice(0, 5)
+---
+
+<Base lang={lang} path="/">
+  <section class="hero">
+    <img class="sprite" {...sprite('faye-96', 2)} alt={pick(profile.avatarAlt, lang)} />
+    <div class="copy">
+      <h1>{pick(profile.name, lang)}</h1>
+      {lang === 'en' && <p class="native-name" lang="zh-CN">{profile.name.zh}</p>}
+      <p class="role">
+        {pick(profile.title, lang)}<br />
+        {pick(profile.affiliation, lang)} · {pick(profile.location, lang)}
+      </p>
+      <p class="tagline">
+        {
+          pick(profile.tagline, lang).map((line, i) =>
+            i === 0 ? line : <Fragment><br />{line}</Fragment>
+          )
+        }
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel about">
+      <h2>{t.about}</h2>
+      <p>
+        {
+          pick(profile.intro, lang).map((part) =>
+            typeof part === 'string' ? (
+              part
+            ) : part.href ? (
+              <a href={part.href}>{part.text}</a>
+            ) : (
+              <span class="nemo-mark">{part.text}</span>
+            )
+          )
+        }
+      </p>
+      <p>{pick(profile.bio, lang)}</p>
+      <p class="contact">
+        <EmailReveal
+          payload={profile.emailPayload}
+          label={t.revealEmail}
+          fallback={t.emailFallback}
+          copyLabel={t.copyEmail}
+          copiedLabel={t.emailCopied}
+          selectLabel={t.emailSelectToCopy}
+        />
+        {
+          profile.links.map((link) => (
+            <a href={link.internal ? localizePath(link.href, lang) : link.href}>
+              {pick(link.label, lang)}
+            </a>
+          ))
+        }
+      </p>
+      {/* Decoration, and hidden from screen readers as such — he is a pun on the
+          lab's name and nothing a reader of the text needs told. Three separate
+          bubbles rather than one animated strip, because each rises on its own
+          clock and a single sprite could not stagger them. */}
+      <div class="nemo" aria-hidden="true">
+        <img class="bubble b1" {...sprite('bubble-4')} alt="" />
+        <img class="bubble b2" {...sprite('bubble-6')} alt="" />
+        <img class="bubble b3" {...sprite('bubble-9')} alt="" />
+        <img {...sprite('nemo-64')} alt="" />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel">
+      <h2>{t.education}</h2>
+      <ul class="edu">
+        {
+          education.map((item) => (
+            <li>
+              <span class="school">{pick(item.school, lang)}</span>
+              <span class="pixel when">{pick(item.when, lang)}</span>
+              <span class="degree">{pick(item.degree, lang)}</span>
+              <span class="where">{pick(item.where, lang)}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>{t.interests}</h2>
+    <ul class="tags">
+      {interests.map((item) => <li>{pick(item, lang)}</li>)}
+    </ul>
+  </section>
+
+  <section>
+    <div class="panel">
+      <h2>{t.ongoingProjects}</h2>
+      <ul class="projects">
+        {
+          ongoingProjects.map((project) => (
+            <li>
+              <div>
+                <span class="project-name">{project.name}</span>
+                <span class="pixel project-status">{pick(project.status, lang)}</span>
+              </div>
+              <p>{pick(project.body, lang)}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel">
+      <h2>{t.news}</h2>
+      <ul class="news">
+        {
+          latestNews.map((item) => (
+            <li>
+              <time datetime={item.date}>{item.date}</time>
+              <span>{pick(item.body, lang)}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>{t.members}</h2>
+    <div class="members">
+      {
+        members.map((member) => (
+          <article class="member">
+            {/* A photograph fills the frame; the triceratops keeps the mat,
+                because pixel art can only be scaled by whole numbers and so
+                cannot be stretched to fit an arbitrary card width. */}
+            <div class:list={['frame', member.image.photo && 'filled']}>
+              <img
+                {...(member.image.sprite
+                  ? sprite(member.image.sprite, 2)
+                  : photo(member.image.photo, 192))}
+                alt={pick(member.alt, lang)}
+              />
+            </div>
+            <h3>{pick(member.name, lang)}</h3>
+            <p class="role">{pick(member.role, lang)}</p>
+            <p class="note">{pick(member.note, lang)}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Base>

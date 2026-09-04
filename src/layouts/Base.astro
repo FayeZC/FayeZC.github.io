@@ -1,0 +1,109 @@
+---
+import '../styles/global.css'
+import { profile } from '../data/site.js'
+import { ui, pick, localizePath, htmlLang, DEFAULT_LANG } from '../i18n/index.js'
+import { sprite } from '../lib/sprite.js'
+
+const { title, description, lang = DEFAULT_LANG, path = '/' } = Astro.props
+
+const t = ui[lang]
+const name = pick(profile.name, lang)
+const pageTitle = title ? `${title} · ${name}` : name
+const nav = [
+  { key: 'home', path: '/' },
+  { key: 'publications', path: '/publications' },
+  { key: 'blog', path: '/blog' },
+  { key: 'cv', path: '/cv' },
+]
+
+// Prefix match, so a post at /blog/foo still lights up Blog. '/' is exact —
+// otherwise Home would be current on every page.
+const isCurrent = (item) => (item.path === '/' ? path === '/' : path.startsWith(item.path))
+---
+
+<!doctype html>
+<html lang={htmlLang[lang]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    {/* The tagline is two lines on the page; here it has to be one string. No
+        joining space in Chinese — the full stop is full-width and already carries
+        its own, and a space between two CJK characters is visible. */}
+    <meta
+      name="description"
+      content={description ?? pick(profile.tagline, lang).join(lang === 'zh' ? '' : ' ')}
+    />
+    <link rel="icon" href="/sprites/faye-48.png" />
+    {/* Tell crawlers the two language versions are the same page. */}
+    <link rel="alternate" hreflang="en" href={new URL(localizePath(path, 'en'), Astro.site)} />
+    <link rel="alternate" hreflang="zh" href={new URL(localizePath(path, 'zh'), Astro.site)} />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(localizePath(path, DEFAULT_LANG), Astro.site)}
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap">
+        <a class="brand" href={localizePath('/', lang)}>{name}</a>
+        <nav>
+          {
+            nav.map((item) => (
+              <a href={localizePath(item.path, lang)} aria-current={isCurrent(item) ? 'page' : undefined}>
+                {t.nav[item.key]}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <slot />
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>© {new Date().getFullYear()} {name} · {t.footer}</span>
+        <img {...sprite('trike-45')} class="peek" alt="" aria-hidden="true" />
+      </div>
+    </footer>
+    <script is:inline>
+      const root = document.documentElement
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+      let dockTimer
+
+      const syncTopbar = () => {
+        const scrolled = window.scrollY > 8
+        const wasScrolled = root.classList.contains('nav-scrolled')
+
+        root.classList.toggle('nav-scrolled', scrolled)
+
+        if (scrolled && !wasScrolled && !reduceMotion.matches) {
+          root.classList.remove('nav-docking')
+          window.requestAnimationFrame(() => {
+            root.classList.add('nav-docking')
+            window.clearTimeout(dockTimer)
+            dockTimer = window.setTimeout(() => root.classList.remove('nav-docking'), 560)
+          })
+        }
+
+        if (!scrolled) {
+          root.classList.remove('nav-docking')
+        }
+      }
+
+      syncTopbar()
+      window.addEventListener('scroll', syncTopbar, { passive: true })
+      reduceMotion.addEventListener?.('change', syncTopbar)
+    </script>
+  </body>
+</html>

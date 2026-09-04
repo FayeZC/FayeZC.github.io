@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+
+# Overleaf CV, cloned for reference. It carries its own .git, so tracking it here
+# would turn it into a submodule pointer and break the sync. Run `npm run cv:sync`.
+cv-source/
+.DS_Store
+*.log
+docs/plans/
+/*_A0_Poster.pdf
+/*_poster_A0.pdf

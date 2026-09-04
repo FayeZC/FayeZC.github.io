@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro'
+import { publications, posters, me } from '../../data/publications.js'
+import { ui } from '../../i18n/index.js'
+
+const { lang } = Astro.props
+const t = ui[lang]
+
+// Paper titles and venues stay in English in both languages — translating them
+// would make the entries impossible to match against the published record.
+const groups = [
+  { heading: t.papers, items: publications },
+  { heading: t.posters, items: posters },
+]
+---
+
+<Base lang={lang} path="/publications" title={t.nav.publications}>
+  <section>
+    <h1>{t.nav.publications}</h1>
+  </section>
+
+  {
+    groups.map((group) => (
+      <section>
+        <div class="panel">
+          <h2>{group.heading}</h2>
+          <ol class="pubs">
+            {group.items.map((p) => (
+              <li>
+                <span class="pub-title">{p.title}</span>
+                <span class="pub-authors">
+                  {p.authors.map((a, i) => (
+                    <>
+                      {i > 0 && ', '}
+                      {a === me ? <strong>{a}</strong> : a}
+                    </>
+                  ))}
+                </span>
+                <span class="pub-venue">
+                  {p.venue} · {p.year}
+                </span>
+                {Object.keys(p.links).length > 0 && (
+                  <span class="pub-links">
+                    {Object.entries(p.links).map(([kind, href]) => (
+                      <a href={href}>{kind}</a>
+                    ))}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    ))
+  }
+</Base>

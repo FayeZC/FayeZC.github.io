@@ -1,0 +1,80 @@
+{
+  "faye-48": {
+    "src": "/sprites/faye-48.png",
+    "width": 48,
+    "height": 45,
+    "pixel": true
+  },
+  "faye-96": {
+    "src": "/sprites/faye-96.png",
+    "width": 96,
+    "height": 90,
+    "pixel": true
+  },
+  "zinc-512": {
+    "src": "/photos/zinc-512.jpg",
+    "width": 512,
+    "height": 512,
+    "pixel": false
+  },
+  "zinc-128": {
+    "src": "/photos/zinc-128.jpg",
+    "width": 128,
+    "height": 128,
+    "pixel": false
+  },
+  "faye-portrait-512": {
+    "src": "/photos/faye-portrait-512.jpg",
+    "width": 512,
+    "height": 512,
+    "pixel": false
+  },
+  "faye-portrait-128": {
+    "src": "/photos/faye-portrait-128.jpg",
+    "width": 128,
+    "height": 128,
+    "pixel": false
+  },
+  "byte-512": {
+    "src": "/photos/byte-512.jpg",
+    "width": 512,
+    "height": 512,
+    "pixel": false
+  },
+  "byte-128": {
+    "src": "/photos/byte-128.jpg",
+    "width": 128,
+    "height": 128,
+    "pixel": false
+  },
+  "trike-45": {
+    "src": "/sprites/trike-45.png",
+    "width": 45,
+    "height": 26,
+    "pixel": true
+  },
+  "nemo-64": {
+    "src": "/sprites/nemo-64.png",
+    "width": 64,
+    "height": 46,
+    "pixel": true
+  },
+  "bubble-9": {
+    "src": "/sprites/bubble-9.png",
+    "width": 9,
+    "height": 9,
+    "pixel": true
+  },
+  "bubble-6": {
+    "src": "/sprites/bubble-6.png",
+    "width": 6,
+    "height": 6,
+    "pixel": true
+  },
+  "bubble-4": {
+    "src": "/sprites/bubble-4.png",
+    "width": 4,
+    "height": 4,
+    "pixel": true
+  }
+}

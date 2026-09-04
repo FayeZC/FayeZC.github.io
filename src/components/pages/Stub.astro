@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro'
+import { ui } from '../../i18n/index.js'
+import { sprite } from '../../lib/sprite.js'
+
+const { lang, path, navKey, bodyKey } = Astro.props
+const t = ui[lang]
+---
+
+<Base lang={lang} path={path} title={t.nav[navKey]}>
+  <section>
+    <h1>{t.nav[navKey]}</h1>
+    <div class="panel stub">
+      <img {...sprite('faye-48')} alt="" aria-hidden="true" />
+      <p>{t[bodyKey]}</p>
+    </div>
+  </section>
+</Base>

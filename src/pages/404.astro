@@ -1,0 +1,22 @@
+---
+// One 404 for the whole site. GitHub Pages serves /404.html for any unmatched
+// path, including under /zh/, and it cannot know which language was wanted —
+// so this page says it in both rather than guessing.
+import Base from '../layouts/Base.astro'
+import { ui } from '../i18n/index.js'
+import { sprite } from '../lib/sprite.js'
+---
+
+<Base lang="en" path="/" title={ui.en.notFoundTitle}>
+  <section class="notfound">
+    <img {...sprite('faye-96', 2)} alt="" aria-hidden="true" />
+    <h1>404 · {ui.en.notFoundTitle}</h1>
+    <div class="panel">
+      <p>{ui.en.notFoundBody}</p>
+      <p><a href="/">{ui.en.notFoundHome}</a></p>
+      <hr />
+      <p lang="zh-CN">{ui.zh.notFoundBody}</p>
+      <p lang="zh-CN"><a href="/zh/">{ui.zh.notFoundHome}</a></p>
+    </div>
+  </section>
+</Base>

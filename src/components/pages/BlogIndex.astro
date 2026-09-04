@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro'
+import { ui, localizePath } from '../../i18n/index.js'
+import { postsFor, slugOf, formatDate } from '../../lib/blog.js'
+import { sprite } from '../../lib/sprite.js'
+
+const { lang } = Astro.props
+const t = ui[lang]
+const posts = await postsFor(lang)
+---
+
+<Base lang={lang} path="/blog" title={t.nav.blog}>
+  <section>
+    <h1>{t.nav.blog}</h1>
+  </section>
+
+  {
+    posts.length === 0 ? (
+      <section>
+        <div class="panel stub">
+          <img {...sprite('faye-48')} alt="" aria-hidden="true" />
+          <p>{t.blogEmpty}</p>
+        </div>
+      </section>
+    ) : (
+      <section>
+        <ul class="post-list">
+          {posts.map((post) => (
+            <li class="panel">
+              <a class="post-link" href={localizePath(`/blog/${slugOf(post.id)}`, lang)}>
+                <h2>{post.data.title}</h2>
+              </a>
+              <p class="post-meta">
+                <time datetime={post.data.date.toISOString().slice(0, 10)}>
+                  {formatDate(post.data.date, lang)}
+                </time>
+                {post.data.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </p>
+              <p class="post-summary">{post.data.summary}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</Base>

@@ -1,0 +1,981 @@
+/* Ark Pixel Font (SIL OFL 1.1, github.com/TakWolf/ark-pixel-font), subset by
+   `npm run fonts` to the ~260 characters this site actually uses: 536KB -> 11KB.
+   No unicode-range: Silkscreen is listed ahead of it and covers Latin, so this
+   only ever gets reached for the characters Silkscreen does not have. */
+@font-face {
+  font-family: 'Ark Pixel 12px';
+  src: url('/fonts/ark-pixel-12px-zh.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cretaceous earth palette. Low saturation everywhere so the mascot's bright
+   green is the only high-chroma thing on the page. */
+:root {
+  --bone: #ede6d6;
+  --paper: #f7f2e6;
+  --ash: #1c1b1a;
+  --fern: #4a6b3d;
+  --fern-light: #6e8c5a;
+  --amber: #c8892f;
+  --stone: #8a8578;
+  /* --stone is only ~3:1 on paper, which fails WCAG AA for body copy.
+     Use --muted wherever small text sits on a light surface. */
+  --muted: #6b665a;
+
+  --edge: 3px;
+  --drop: 5px;
+
+  /* Neither Silkscreen nor IBM Plex Sans ships CJK glyphs, so Latin renders in
+     the intended face and Chinese falls through to a clean system CJK face
+     rather than whatever the browser picks last. */
+  --cjk: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+  --pixel-font: 'Silkscreen', 'Ark Pixel 12px', 'Courier New', var(--cjk);
+  /* Body copy stays in a normal face in both languages. A pixel font is
+     unreadable at paragraph length, and doubly so for Chinese. */
+  --body-font: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', var(--cjk);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* Column flex with a growing main, so the footer sits at the bottom of the
+     viewport on short pages instead of floating halfway up an empty screen. */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bone);
+  /* Dither texture. Keep it barely-there: at full --stone it reads as noise and
+     swallows any muted text sitting directly on the page background. */
+  background-image: radial-gradient(rgba(138, 133, 120, 0.22) 1px, transparent 1px);
+  background-size: 9px 9px;
+  color: var(--ash);
+  font-family: var(--body-font);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+.pixel {
+  font-family: var(--pixel-font);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+/* Pixel fonts are unreadable in paragraphs, so headings only, and never small. */
+h1 {
+  font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+  margin: 0;
+}
+/* Page titles on subpages sit directly under section; the hero h1 is nested in
+   .copy and handles its own spacing. */
+section > h1 {
+  margin-bottom: 1.2rem;
+}
+h2 {
+  font-size: 1.15rem;
+  margin: 0 0 1.1rem;
+  color: var(--fern);
+}
+
+a {
+  color: var(--fern);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--amber);
+}
+
+img {
+  image-rendering: pixelated;
+}
+/* The cats are real photographs, not pixel art. Nearest-neighbour upscaling
+   would just make them look broken, and the integer-scale rule below does not
+   apply — photos are generated at 2x and rendered down. No border here: the
+   only place a photo appears is inside .member .frame, which already draws one
+   around its mat, and a second one just reads as clutter. */
+.photo {
+  image-rendering: auto;
+}
+
+/* Sprites carry width/height attributes generated from the sprite manifest at an
+   exact integer scale. CSS must not restate a width — it would drift out of sync
+   the moment a sprite is regenerated and trimmed differently, which is how the
+   cat ended up rendering at x2.23. Only cap the width so nothing overflows a
+   narrow viewport, and let height follow. */
+img[width] {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrap {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  /* The wrap is also a flex item on <main>; without this it would shrink to fit
+     its content rather than filling the column. */
+  width: 100%;
+}
+main {
+  flex: 1 0 auto;
+}
+
+/* --- chunky pixel surfaces: zero radius, hard shadow, no blur --- */
+.panel {
+  background: var(--paper);
+  border: var(--edge) solid var(--ash);
+  box-shadow: var(--drop) var(--drop) 0 var(--ash);
+  padding: 1.6rem 1.8rem;
+}
+
+section {
+  margin: 3.5rem 0;
+}
+
+/* --- nav --- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: var(--edge) solid var(--ash);
+  background: var(--paper);
+  transition:
+    background-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: box-shadow;
+}
+html.nav-scrolled .topbar {
+  background: rgba(247, 242, 230, 0.96);
+  box-shadow: 0 3px 0 var(--ash);
+  animation: topbar-breathe 3400ms steps(2, end) infinite;
+}
+.topbar .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  align-items: center;
+  padding-block: 0.9rem;
+  will-change: transform;
+}
+html.nav-docking .topbar .wrap {
+  animation: topbar-dock 520ms steps(5, end);
+}
+.topbar .brand {
+  font-family: var(--pixel-font);
+  font-size: 0.95rem;
+  margin-right: auto;
+  text-decoration: none;
+  color: var(--ash);
+}
+/* The links carry a 2px border that only shows on the current page and on
+   hover, so unspaced they sit box-against-box and read as one control. Astro
+   emits the anchors with no whitespace between them, so the gap has to be set
+   here rather than left to the markup. */
+.topbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.5rem;
+}
+.topbar nav a {
+  font-family: var(--pixel-font);
+  font-size: 0.78rem;
+  text-decoration: none;
+  padding: 0.3rem 0.55rem;
+  border: 2px solid transparent;
+}
+.topbar nav a:hover {
+  border-color: var(--ash);
+  background: var(--bone);
+}
+.topbar nav a[aria-current='page'] {
+  border-color: var(--ash);
+  background: var(--bone);
+  box-shadow: 2px 2px 0 var(--fern-light);
+}
+@keyframes topbar-breathe {
+  0%,
+  100% {
+    box-shadow: 0 3px 0 var(--ash);
+  }
+  50% {
+    box-shadow:
+      0 4px 0 var(--ash),
+      0 7px 0 rgba(74, 107, 61, 0.16);
+  }
+}
+@keyframes topbar-dock {
+  0% {
+    transform: translateY(-6px);
+  }
+  40% {
+    transform: translateY(2px);
+  }
+  65% {
+    transform: translateY(-1px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* --- pixel Chinese ---
+   Ark Pixel is drawn on a 12px grid, so it is only crisp at multiples of 12px;
+   at 19.5px the glyphs get resampled and go soft, which defeats the point of a
+   pixel font. Chinese has its own route tree, so snap every pixel-font size on
+   those pages to a 12px step without touching the approved English typography.
+   Letter-spacing goes to zero for the same reason: 0.02em of 24px is 0.48px,
+   which pushes each glyph onto a fractional pixel boundary. */
+html[lang='zh-CN'] h1,
+html[lang='zh-CN'] h2,
+html[lang='zh-CN'] h3,
+html[lang='zh-CN'] .pixel,
+html[lang='zh-CN'] .topbar .brand,
+html[lang='zh-CN'] .topbar nav a {
+  letter-spacing: 0;
+}
+html[lang='zh-CN'] h1 {
+  font-size: 36px;
+}
+html[lang='zh-CN'] h2 {
+  font-size: 24px;
+}
+html[lang='zh-CN'] .topbar .brand {
+  font-size: 24px;
+}
+html[lang='zh-CN'] .topbar nav a {
+  font-size: 12px;
+}
+
+/* --- hero --- */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+.hero .sprite {
+  flex: none;
+  /* steps() keeps the bob feeling like sprite frames rather than smooth CSS motion */
+  animation: bob 1.6s steps(2, end) infinite;
+}
+.hero .copy {
+  flex: 1 1 22rem;
+}
+.hero .native-name {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-family: var(--body-font);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+/* Body font, not pixel: this is the one line every visitor must actually read,
+   and a pixel face at this size over the dither texture is illegible. */
+.hero .role {
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: #55514a;
+  margin: 0.7rem 0 0;
+}
+.hero .tagline {
+  margin: 1rem 0 0;
+  font-size: 1.05rem;
+}
+
+@keyframes bob {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* The Ne and the Mo the lab's name is built from, in Nemo's orange — sampled
+   off nemo-64.png, the darker of the two oranges he is drawn in. The brighter
+   one is only 2.4:1 on this panel; this is 3.7:1, still short of AA but half
+   again as legible, and it is the same orange either way. Bold does the rest of
+   the work, and the letters are inside words that read fine without them. */
+.nemo-mark {
+  color: #d14314;
+  font-weight: 700;
+}
+
+/* Nemo, tucked into the bottom-right corner of the About panel, because the lab
+   is called NeMo. Absolutely positioned so he sits in the panel's padding and
+   changes nothing about where the text goes. The box is exactly the sprite: the
+   bubbles hang off it, so it has to be the thing they are measured from. */
+.about {
+  position: relative;
+}
+.nemo {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.8rem;
+  width: 64px;
+  height: 46px;
+}
+.nemo img {
+  display: block;
+}
+/* He himself holds still. The bubbles leave his mouth — at the left of the
+   sprite, which is the way he faces — and go straight up: 44px over 22 steps is
+   two whole pixels a frame. Whole pixels matter here; a fractional translate
+   resamples the sprite and softens the one thing pixel art cannot lose. */
+.nemo .bubble {
+  position: absolute;
+  opacity: 0;
+  animation: rise 3.6s steps(22, end) infinite;
+}
+/* Staggered in space as well as in time, so the trail leans away from his mouth
+   and the big one is always the one furthest up. All three sit clear of his
+   outline: started any closer they surface on his cheek rather than beside it.
+   The delays are negative so the trail is already running at page load instead
+   of filling in one bubble at a time over the first cycle. */
+.nemo .b1 {
+  left: -6px;
+  bottom: 18px;
+}
+.nemo .b2 {
+  left: -14px;
+  bottom: 24px;
+  animation-delay: -1.2s;
+}
+.nemo .b3 {
+  left: -24px;
+  bottom: 30px;
+  animation-delay: -2.4s;
+}
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  12% {
+    opacity: 1;
+  }
+  76% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-44px);
+  }
+}
+/* Below this the contact row wraps to two lines and reaches the corner he is
+   sitting in, so stop floating him over it and let him take his own line. Still
+   bottom right, just no longer on top of anything — and still position:relative,
+   or the bubbles would go looking for the panel instead of for him. */
+@media (max-width: 34rem) {
+  .nemo {
+    position: relative;
+    /* Tall enough a margin for the bubbles too: they leave the box, and at this
+       width the row they would rise into is the links. */
+    margin: 2.75rem 0 0 auto;
+  }
+}
+/* Contact row: the email widget is a button, the rest are plain links, so align
+   them on a shared baseline row instead of letting them stack unevenly. */
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.1rem;
+  /* room above for the 30px-tall trike to walk over the address without hitting the bio */
+  margin-top: 3rem;
+  margin-bottom: 0;
+}
+
+/* --- tags --- */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.tags li {
+  font-size: 0.85rem;
+  background: var(--bone);
+  border: 2px solid var(--ash);
+  box-shadow: 3px 3px 0 var(--fern-light);
+  padding: 0.2rem 0.6rem;
+}
+
+/* --- projects --- */
+.projects {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.projects li {
+  padding: 0.75rem 0;
+  border-bottom: 2px dotted var(--stone);
+}
+.projects li:last-child {
+  border-bottom: 0;
+}
+.projects li > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+}
+.project-name {
+  font-weight: 700;
+}
+.project-status {
+  color: var(--amber);
+  font-size: 12px;
+}
+.projects p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* --- news --- */
+.news {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* Grid, not flex-wrap: a long entry used to push its own date onto a separate
+   line, so that row stopped aligning with every other row. */
+.news li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.3rem 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 2px dotted var(--stone);
+}
+.news li:last-child {
+  border-bottom: 0;
+}
+.news time {
+  font-family: var(--pixel-font);
+  font-size: 0.72rem;
+  color: var(--amber);
+  padding-top: 0.3rem;
+}
+
+@media (max-width: 30rem) {
+  .news li {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
+
+/* --- education --- */
+.edu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* Two columns: what it was on the left, when and where on the right. Grid rather
+   than flex so the date stays pinned to the school's own row when a long degree
+   line wraps underneath it. */
+.edu li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.1rem 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 2px dotted var(--stone);
+}
+.edu li:last-child {
+  border-bottom: 0;
+}
+.edu .school {
+  font-weight: 600;
+}
+/* Flat 12px, not a rem fraction: this is the one pixel-font run that carries
+   Chinese, and Ark Pixel is only crisp on its 12px grid. */
+.edu .when {
+  font-size: 12px;
+  color: var(--amber);
+  text-align: right;
+  padding-top: 0.35rem;
+  white-space: nowrap;
+}
+.edu .degree,
+.edu .where {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.edu .where {
+  text-align: right;
+}
+
+@media (max-width: 30rem) {
+  .edu li {
+    grid-template-columns: 1fr;
+  }
+  .edu .when,
+  .edu .where {
+    text-align: left;
+  }
+}
+
+/* --- members gallery --- */
+.members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.8rem;
+}
+.member {
+  background: var(--paper);
+  border: var(--edge) solid var(--ash);
+  box-shadow: var(--drop) var(--drop) 0 var(--ash);
+  padding: 1.2rem;
+  text-align: center;
+}
+/* Framed like something hung on a wall, matted in bone. Fixed height so the two
+   portraits share a baseline and the names below them line up across cards. */
+.member .frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Square, so every card's frame is the same height whatever is inside it and
+     the names below line up across the row. */
+  aspect-ratio: 1;
+  background: var(--bone);
+  border: 2px solid var(--ash);
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+/* A photograph is the frame's whole content, edge to edge — the mat is for the
+   pixel art, which needs the margin and cannot be resized to fit. */
+.member .frame.filled {
+  padding: 0;
+}
+.member .photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.member img {
+  display: block;
+  margin: 0 auto;
+}
+.member h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.member .role {
+  font-size: 0.85rem;
+  color: var(--amber);
+  margin: 0.35rem 0 0.7rem;
+}
+.member .note {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+  text-align: left;
+}
+
+/* --- publication lists --- */
+.pubs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: pub;
+}
+.pubs li {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.9rem 0;
+  border-bottom: 2px dotted var(--stone);
+}
+.pubs li:last-child {
+  border-bottom: 0;
+}
+.pub-title {
+  font-weight: 600;
+}
+.pub-authors,
+.pub-venue {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.pub-authors strong {
+  color: var(--ash);
+}
+.pub-venue {
+  color: var(--fern);
+}
+
+/* --- CV --- */
+/* Same two-column shape as .edu: the thing on the left, when it happened on the
+   right. Used by awards, teaching and service, which are all that list. */
+.dated {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.dated li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.2rem 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 2px dotted var(--stone);
+}
+.dated li:last-child {
+  border-bottom: 0;
+}
+/* Flat 12px for the same reason as .edu .when — this run carries Chinese, and
+   Ark Pixel is only crisp on its 12px grid. */
+.dated .when,
+.job .when {
+  font-size: 12px;
+  color: var(--amber);
+  white-space: nowrap;
+}
+.dated .when {
+  text-align: right;
+  padding-top: 0.35rem;
+}
+
+.job {
+  padding: 1.1rem 0;
+  border-bottom: 2px dotted var(--stone);
+  /* Title left, dates right, everything else full width underneath. */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.15rem 1rem;
+}
+.job:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.job h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+.job .when {
+  text-align: right;
+  padding-top: 0.2rem;
+}
+.job-role,
+.job-where {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.job-where {
+  color: var(--stone);
+}
+.job ul {
+  grid-column: 1 / -1;
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+}
+.job li {
+  margin-bottom: 0.35rem;
+}
+.job li::marker {
+  color: var(--fern-light);
+}
+
+.sub {
+  font-size: 0.9rem;
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1.4rem;
+  margin: 0;
+}
+.skills dt {
+  font-weight: 600;
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+.skills dd {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.cv-actions {
+  margin: 1.2rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+/* The CV page is the PDF. Tall enough to read a page at a time without the
+   viewer's own scrollbar fighting the page's, and the object gets an explicit
+   height because a replaced element with no intrinsic size collapses to 150px
+   in every browser. */
+.cv-pdf object {
+  display: block;
+  width: 100%;
+  height: min(85vh, 1100px);
+  border: 3px solid var(--ash);
+  box-shadow: 6px 6px 0 var(--fern-light);
+  background: var(--paper);
+}
+
+/* The transcription is the degraded path, not a second copy of the page: it
+   shows only where the embed does not. Still in the DOM either way, so search
+   engines index the text rather than an opaque PDF. */
+.cv-text {
+  display: none;
+}
+/* Phones and small tablets. Mobile Safari renders only the first page of an
+   embedded PDF and Chrome for Android renders nothing at all — neither triggers
+   the <object> fallback, so the breakpoint has to make the call instead. */
+@media (max-width: 48rem) {
+  .cv-pdf {
+    display: none;
+  }
+  .cv-text {
+    display: block;
+  }
+}
+/* Set by the script on /cv when the browser says it has no PDF viewer. */
+html[data-no-pdf] .cv-pdf {
+  display: none;
+}
+html[data-no-pdf] .cv-text {
+  display: block;
+}
+/* Same chunky affordance as the language toggle, so a download reads as a
+   control rather than as another inline link. */
+.button {
+  display: inline-block;
+  font-family: var(--pixel-font);
+  font-size: 0.78rem;
+  text-decoration: none;
+  color: var(--ash);
+  background: var(--paper);
+  border: 2px solid var(--ash);
+  box-shadow: 3px 3px 0 var(--fern-light);
+  padding: 0.45rem 0.8rem;
+}
+.button:hover {
+  color: var(--ash);
+  background: var(--amber);
+  box-shadow: 3px 3px 0 var(--ash);
+}
+html[lang='zh-CN'] .button {
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+@media (max-width: 34rem) {
+  .dated li,
+  .job {
+    grid-template-columns: 1fr;
+  }
+  .dated .when,
+  .job .when {
+    text-align: left;
+  }
+  .skills {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+  .skills dd {
+    margin-bottom: 0.7rem;
+  }
+}
+
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+}
+
+/* --- blog --- */
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.8rem;
+}
+/* The whole heading is the link, so no separate "read more" — one target per
+   post is easier to hit and easier to announce. */
+.post-link {
+  text-decoration: none;
+  color: inherit;
+}
+.post-link h2 {
+  margin: 0;
+  color: var(--fern);
+}
+.post-link:hover h2 {
+  color: var(--amber);
+}
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+  margin: 0.6rem 0 0;
+  font-family: var(--pixel-font);
+  font-size: 12px;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+.post-meta .tag {
+  color: var(--ash);
+  background: var(--bone);
+  border: 2px solid var(--ash);
+  padding: 0.1rem 0.4rem;
+}
+.post-summary {
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+}
+
+/* Post body. The panel spans the page like every other panel on the site, but
+   the text inside is capped at a readable measure — full-width prose at 940px
+   is about 130 characters a line, roughly twice what anyone wants to track.
+   Centred rather than left-aligned: a capped column pinned to the left edge of
+   a bordered box leaves the whole right half of the panel visibly empty. */
+.prose > * {
+  max-width: 40rem;
+  margin-inline: auto;
+}
+.prose > :first-child {
+  margin-top: 0;
+}
+.prose > :last-child {
+  margin-bottom: 0;
+}
+.prose h2 {
+  margin-top: 2.2rem;
+}
+.prose h3 {
+  font-size: 1rem;
+  margin: 1.8rem 0 0.6rem;
+  color: var(--fern);
+}
+.prose p,
+.prose li {
+  line-height: 1.75;
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.2rem;
+}
+.prose li::marker {
+  color: var(--fern-light);
+}
+.prose code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  background: var(--bone);
+  border: 1px solid var(--stone);
+  padding: 0.05em 0.3em;
+}
+.prose pre {
+  background: var(--bone);
+  border: 2px solid var(--ash);
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+}
+.prose pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.prose blockquote {
+  margin: 1.4rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid var(--fern-light);
+  color: var(--muted);
+}
+.prose img {
+  max-width: 100%;
+  height: auto;
+}
+.prose hr {
+  border: 0;
+  border-top: 2px dotted var(--stone);
+  margin: 2rem 0;
+}
+
+/* --- 404 --- */
+.notfound {
+  text-align: center;
+}
+.notfound img {
+  /* Flip it: the mascot is looking back at where the page used to be. */
+  transform: scaleX(-1);
+  margin-bottom: 1.2rem;
+}
+.notfound .panel {
+  text-align: left;
+  max-width: 34rem;
+  margin: 1.4rem auto 0;
+}
+.notfound hr {
+  border: 0;
+  border-top: 2px dotted var(--stone);
+  margin: 1.4rem 0;
+}
+
+.stub-note {
+  color: var(--muted);
+  margin-top: 0.6rem;
+}
+.stub {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+.stub img {
+  flex: none;
+}
+.stub p {
+  margin: 0;
+}
+
+/* --- footer --- */
+footer {
+  border-top: var(--edge) solid var(--ash);
+  background: var(--paper);
+  margin-top: 4rem;
+  padding: 1.6rem 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+footer .peek {
+  margin-left: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+  }
+}

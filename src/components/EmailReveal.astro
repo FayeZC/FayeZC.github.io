@@ -1,0 +1,280 @@
+---
+import { sprite } from '../lib/sprite.js'
+
+const {
+  payload,
+  label = 'Reveal email',
+  fallback = 'Email is JavaScript-gated to keep scrapers out — reach me on GitHub instead.',
+  copyLabel = 'Click to copy',
+  copiedLabel = 'Copied',
+  selectLabel = 'Selected — press ⌘C',
+} = Astro.props
+// The address arrives already encoded and is never decoded at build time, so the
+// plain text exists nowhere in this repo or its output. The markup carries the
+// payload and nothing derived from it — not even a length, since the script
+// decodes on load to build the scramble and can measure it there.
+// check-layout.mjs greps the built HTML for the address and fails on a hit,
+// which is what keeps that claim honest rather than merely intended.
+---
+
+<span
+  class="email-reveal"
+  data-payload={payload}
+  data-copy={copyLabel}
+  data-copied={copiedLabel}
+  data-select={selectLabel}
+>
+  {/* One button throughout: it reveals on the first click and copies on every
+      one after. Swapping in a mailto: link would hand the address to whatever
+      the OS thinks a mail client is, which for most people is nothing useful. */}
+  <button type="button" class="trigger">
+    <span class="track">
+      <span class="chars"></span>
+      <img class="dino" {...sprite('trike-45')} alt="" aria-hidden="true" />
+    </span>
+    {/* Polite, not assertive: the copy confirmation is a nicety, and should not
+        interrupt whatever a screen reader is already saying. */}
+    <span class="label" aria-live="polite">{label}</span>
+  </button>
+  <noscript>
+    <span class="fallback">{fallback}</span>
+  </noscript>
+</span>
+
+<style>
+  .email-reveal {
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  .trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    max-width: 100%;
+    font: inherit;
+    color: var(--fern);
+    background: var(--bone);
+    border: 2px solid var(--ash);
+    box-shadow: 3px 3px 0 var(--ash);
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    text-align: left;
+  }
+  .trigger:hover {
+    box-shadow: 3px 3px 0 var(--amber);
+  }
+  .trigger[hidden] {
+    display: none;
+  }
+
+  /* The dino is absolutely positioned over this, so it needs to be the containing
+     block and needs room above for the sprite to stand on the text. */
+  .track {
+    position: relative;
+    display: inline-block;
+    /* min-width keeps the box from collapsing before the chars are painted in */
+    min-width: 12ch;
+    font-family: var(--pixel-font);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    color: var(--ash);
+  }
+
+  .chars {
+    display: inline-block;
+  }
+  /* Once it is a real address rather than spinning noise, let it be dragged over
+     and copied by hand — the button is a convenience, not the only way out. */
+  .email-reveal[data-done] .chars {
+    user-select: text;
+    color: var(--fern);
+  }
+  /* The address is long and pixel-font wide, so on a narrow screen let it wrap
+     instead of blowing out the panel. nowrap while scrambling, though: the line
+     must not reflow on every tick. */
+  .email-reveal[data-done] .track {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* Size comes from the sprite manifest via width/height attributes, so no CSS
+     width here — a hardcoded one would go fractional the moment the sprite is
+     regenerated at a different trim. */
+  .dino {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    opacity: 0;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+  .email-reveal[data-walking] .dino {
+    opacity: 1;
+  }
+
+  .label {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  /* Confirmation reads as a state change, not as more instructions. Keyed off
+     data-flash rather than data-copied — the latter carries the translated
+     string and is present from the start. */
+  .email-reveal[data-flash] .label {
+    color: var(--fern);
+  }
+
+  .fallback {
+    font-size: 0.9rem;
+    color: var(--stone);
+  }
+</style>
+
+<script>
+  const KEY = 0x2a
+  const DURATION = 1300
+  const TICK = 70 // ~14fps, coarse on purpose so it reads as sprite animation
+  const FLASH = 2000 // how long "Copied" stays up before the prompt returns
+
+  function decode(payload) {
+    const raw = atob(payload)
+    let out = ''
+    for (let i = 0; i < raw.length; i++) {
+      out += String.fromCharCode(raw.charCodeAt(i) ^ KEY)
+    }
+    return out
+  }
+
+  // Fisher-Yates, in place.
+  function shuffle(items) {
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[items[i], items[j]] = [items[j], items[i]]
+    }
+    return items
+  }
+
+  for (const root of document.querySelectorAll('.email-reveal')) {
+    const button = root.querySelector('.trigger')
+    const chars = root.querySelector('.chars')
+    const dino = root.querySelector('.dino')
+    const label = root.querySelector('.label')
+
+    // Decoded on load rather than on click. The gate is against scrapers that
+    // read markup without running scripts, and this keeps the address out of
+    // the markup either way — what is on screen before the click is an anagram.
+    const email = decode(root.dataset.payload)
+    const at = email.indexOf('@')
+
+    // The scramble is the address's own characters in the wrong order, not
+    // random filler, with the @ held in its real position. Same characters, same
+    // length, same shape — so it reads as an address being uncovered rather than
+    // as a licence key. `from` is how far the reveal has already got.
+    const scrambleFrom = (from) => {
+      const rest = shuffle([...email.slice(from)].filter((c) => c !== '@'))
+      if (from <= at) rest.splice(at - from, 0, '@')
+      return rest.join('')
+    }
+
+    // A shuffle that lands on the real thing would give the address away for
+    // free. Vanishingly unlikely at this length, but the retry costs nothing.
+    const scramble = (from) => {
+      const target = email.slice(from)
+      for (let tries = 0; tries < 5; tries++) {
+        const out = scrambleFrom(from)
+        if (out !== target) return out
+      }
+      return scrambleFrom(from)
+    }
+
+    chars.textContent = scramble(0)
+
+    let flashTimer = 0
+    const flash = (message) => {
+      root.dataset.flash = ''
+      label.textContent = message
+      clearTimeout(flashTimer)
+      flashTimer = setTimeout(() => {
+        delete root.dataset.flash
+        label.textContent = root.dataset.copy
+      }, FLASH)
+    }
+
+    // Select the address in the page as well as copying it. On the fallback
+    // path the selection is the whole answer — the user finishes with ⌘C —
+    // and on the happy path it is harmless confirmation of what got copied.
+    const select = () => {
+      const range = document.createRange()
+      range.selectNodeContents(chars)
+      const selection = window.getSelection()
+      selection.removeAllRanges()
+      selection.addRange(range)
+    }
+
+    const copy = async () => {
+      select()
+      // Only defined on secure origins, so a plain-http visit lands below.
+      if (navigator.clipboard?.writeText) {
+        try {
+          await navigator.clipboard.writeText(chars.textContent)
+          flash(root.dataset.copied)
+          return
+        } catch {
+          // Permission denied, or no user gesture as far as the browser is
+          // concerned. Fall through to the old API.
+        }
+      }
+      // Deprecated, but it is the only thing that works off https, and it
+      // copies whatever is selected — which select() has just arranged.
+      if (document.execCommand?.('copy')) {
+        flash(root.dataset.copied)
+      } else {
+        flash(root.dataset.select)
+      }
+    }
+
+    const settle = () => {
+      root.dataset.done = ''
+      chars.textContent = email
+      label.textContent = root.dataset.copy
+      button.addEventListener('click', copy)
+      // The click that finished the reveal was about revealing, not copying,
+      // so it does not also copy; the next one does.
+    }
+
+    button.addEventListener(
+      'click',
+      () => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          settle()
+          return
+        }
+
+        root.dataset.walking = ''
+        const start = performance.now()
+
+        const step = () => {
+          const progress = Math.min((performance.now() - start) / DURATION, 1)
+          // Characters lock in behind the dino as it passes over them, and the
+          // tail reshuffles what is left, so the line is always an anagram of
+          // whatever has not been uncovered yet.
+          const locked = Math.floor(progress * email.length)
+          chars.textContent = email.slice(0, locked) + scramble(locked)
+          dino.style.left = `${progress * 100}%`
+
+          if (progress < 1) {
+            setTimeout(step, TICK)
+          } else {
+            delete root.dataset.walking
+            settle()
+          }
+        }
+
+        step()
+      },
+      { once: true }
+    )
+  }
+</script>
