@@ -46,7 +46,7 @@ const latestNews = news.slice(0, 5)
           )
         }
       </p>
-      <p>{pick(profile.bio, lang)}</p>
+      {pick(profile.bio, lang).map((paragraph) => <p>{paragraph}</p>)}
       <p class="contact">
         <EmailReveal
           payload={profile.emailPayload}

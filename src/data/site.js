@@ -77,21 +77,21 @@ export const profile = {
   // back with a space — there is nowhere to put a line break in an attribute.
   tagline: {
     en: [
-      'Measure the security of the software supply chain that AI agents are building.',
+      'Understanding and protecting the security and privacy of agentic AI systems.',
       'Stay Curious.',
     ],
-    zh: ['测量 AI agent 正在搭建的那条软件供应链的安全性。', '保持好奇。'],
+    zh: ['理解并保护智能体 AI 系统的安全与隐私。', '保持好奇。'],
   },
-  // Picks up where intro leaves off. The Chinese is one long line on purpose:
-  // a wrapped template literal keeps its newline and indent, HTML collapses
-  // that to a single space, and in Chinese a space mid-sentence is visible.
+  // Separate paragraphs keep the research focus and applications easy to scan.
   bio: {
-    en: `My research focuses on securing AI-agent software ecosystems: the skills agents install, the
-         tools they call, and where malicious or over-privileged workflows escape detection. I also work
-         on trustworthy AI-agent workflow systems in small-business settings, focusing on delegated
-         authority, least privilege, accountable evidence, and recovery, with a growing interest in
-         privacy-preserving federated multi-agent systems.`,
-    zh: '我的研究聚焦于 AI agent 软件生态安全：agent 会安装哪些 skill、调用哪些工具，以及恶意或过度授权的 workflow 会在哪些环节逃过检测。我也以小型企业场景研究可信赖的 AI-agent workflow 系统，关注授权边界、最小权限、可追责证据和恢复，并继续关注隐私保护的联邦多 Agent 系统。',
+    en: [
+      'My research focuses on the security and privacy of agentic AI systems: how models, tools, memory, and permissions work together to access information and act in software environments. I study the software ecosystems these systems depend on, including reusable agent skills and tool integrations. I am interested in how malicious instructions, excessive permissions, and unintended information sharing can compromise these systems and the data they handle.',
+      'I also investigate how agentic AI systems can support security monitoring and digital forensics. My focus is on connecting incident evidence to authorized responses and verifiable recovery, while limiting the sensitive information exposed during investigation and oversight. More broadly, I am interested in privacy-preserving collaboration across agents and services.',
+    ],
+    zh: [
+      '我的研究聚焦于智能体 AI 系统的安全与隐私：模型、工具、记忆与权限如何协同，使系统能够访问信息并在软件环境中执行操作。我研究这些系统所依赖的软件生态，包括可复用的 agent skills 和工具集成，关注恶意指令、过度授权和非预期的信息共享如何危及系统及其处理的数据。',
+      '我也研究智能体 AI 系统如何支持安全监测与数字取证，重点关注如何将事件证据与经过授权的响应、可验证的恢复连接起来，同时限制调查和监督过程中敏感信息的暴露。更广泛地，我对智能体与服务之间的隐私保护协作感兴趣。',
+    ],
   },
   // No mailto here on purpose — the address is rendered through <EmailReveal>,
   // which keeps it out of the HTML until a real click.
