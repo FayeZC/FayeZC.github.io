@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro'
 import { profile, education, interests } from '../../data/site.js'
 import { awards, experience, teaching, service, skills } from '../../data/cv.js'
-import { publications, posters, me } from '../../data/publications.js'
+import { publications, me } from '../../data/publications.js'
 import { ui, pick } from '../../i18n/index.js'
 
 const { lang } = Astro.props
@@ -19,8 +19,8 @@ const PDF = '/cv/chi-zhang-cv.pdf'
 // letterboxed in grey.
 const EMBED = `${PDF}#toolbar=0&navpanes=0&view=FitH`
 
-// Both lists on one page, newest first, since the CV runs them together too.
-const written = [...publications, ...posters]
+// Papers and posters in one list, newest first, as the CV runs them.
+const written = publications
 ---
 
 <Base lang={lang} path="/cv" title={t.nav.cv}>

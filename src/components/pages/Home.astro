@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro'
 import EmailReveal from '../EmailReveal.astro'
-import { profile, education, interests, ongoingProjects, news, members } from '../../data/site.js'
+import { profile, education, interests, news, members } from '../../data/site.js'
 import { ui, pick, localizePath } from '../../i18n/index.js'
 import { sprite, photo } from '../../lib/sprite.js'
 
@@ -47,6 +47,7 @@ const latestNews = news.slice(0, 5)
         }
       </p>
       {pick(profile.bio, lang).map((paragraph) => <p>{paragraph}</p>)}
+      <p>{pick(profile.collab, lang)}</p>
       <p class="contact">
         <EmailReveal
           payload={profile.emailPayload}
@@ -100,25 +101,6 @@ const latestNews = news.slice(0, 5)
     <ul class="tags">
       {interests.map((item) => <li>{pick(item, lang)}</li>)}
     </ul>
-  </section>
-
-  <section>
-    <div class="panel">
-      <h2>{t.ongoingProjects}</h2>
-      <ul class="projects">
-        {
-          ongoingProjects.map((project) => (
-            <li>
-              <div>
-                <span class="project-name">{project.name}</span>
-                <span class="pixel project-status">{pick(project.status, lang)}</span>
-              </div>
-              <p>{pick(project.body, lang)}</p>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
   </section>
 
   <section>

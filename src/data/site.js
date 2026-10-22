@@ -93,6 +93,11 @@ export const profile = {
       '我也研究智能体 AI 系统如何支持安全监测与数字取证，重点关注如何将事件证据与经过授权的响应、可验证的恢复连接起来，同时限制调查和监督过程中敏感信息的暴露。更广泛地，我对智能体与服务之间的隐私保护协作感兴趣。',
     ],
   },
+  // Sits last in the About panel, right above the contact links it points to.
+  collab: {
+    en: 'I love talking about these questions! If they interest you too, I would be glad to hear from you, whether to chat, swap ideas, or work together.',
+    zh: '我很喜欢聊这些问题！如果你也感兴趣，不管是随便聊聊、交流想法，还是一起做点什么，都非常欢迎来找我。',
+  },
   // No mailto here on purpose — the address is rendered through <EmailReveal>,
   // which keeps it out of the HTML until a real click.
   links: [
@@ -123,38 +128,12 @@ export const education = [
 ]
 
 export const interests = [
-  { en: 'Cybersecurity', zh: '网络安全' },
+  { en: 'Agentic AI Security', zh: '智能体 AI 安全' },
+  { en: 'Privacy', zh: '隐私' },
+  { en: 'Accountability & Digital Forensics', zh: '问责与数字取证' },
+  { en: 'Cloud Security', zh: '云安全' },
   { en: 'Usable Security', zh: '可用安全' },
-  { en: 'Generative AI Safety', zh: '生成式 AI 安全' },
-  { en: 'Decentralized Privacy-Preserving ML', zh: '去中心化隐私保护机器学习' },
   { en: 'LLM-Assisted Education', zh: '大模型辅助教育' },
-]
-
-export const ongoingProjects = [
-  {
-    name: 'Trustworthy AI Agent Workflows',
-    status: { en: 'Ongoing', zh: '进行中' },
-    body: {
-      en: 'Trustworthy AI-agent workflows for security monitoring and digital forensics, using small businesses as a stress-test setting.',
-      zh: '面向安全监测与数字取证的可信 AI-agent workflow，以小型企业作为 stress-test 场景。',
-    },
-  },
-  {
-    name: 'AutoRSI',
-    status: { en: 'Ongoing', zh: '进行中' },
-    body: {
-      en: 'A domain-agnostic framework for recursive self-improvement over naive methods, currently tested on formal code generation and agent-security benchmarks.',
-      zh: '一个面向朴素基线方法的跨领域递归自我改进框架，目前在形式化代码生成与 agent-security benchmarks 上测试。',
-    },
-  },
-  {
-    name: 'Cyberpunk',
-    status: { en: 'Ongoing', zh: '进行中' },
-    body: {
-      en: 'A cybersecurity benchmark platform for testing LLMs and agents on practical tasks, including CybORG/CAGE-style challenges.',
-      zh: '一个用于测试 LLM 与 agent 实际安全任务能力的 cybersecurity benchmark platform，包括 CybORG/CAGE 风格的挑战。',
-    },
-  },
 ]
 
 // Newest first.
