@@ -15,6 +15,8 @@ export const me = 'Zhang, C.'
 
 // One list, newest first, papers and posters together; the venue line already
 // says which is which. Within a year, order by acceptance date.
+// `selected: false` keeps an entry on the CV page but off /publications, which
+// shows selected work only.
 //
 // The poster PDFs are the A0 boards as printed, served from public/posters/.
 // Note they carry the author contact addresses in their headers, the way a
@@ -69,6 +71,7 @@ export const publications = [
     title: 'Music Intervention in Human Life, Work, and Disease: A Survey',
     venue: 'International Journal of Crowd Science, 7(3), 97–105',
     short: 'IJCS',
+    selected: false,
     links: { DOI: 'https://doi.org/10.26599/IJCS.2023.9100003' },
   },
   {
@@ -77,6 +80,7 @@ export const publications = [
     title: 'Music Rhythm Matching Based on Dynamic Step Frequency',
     venue: 'Proceedings of the 5th International Conference on Crowd Science and Engineering (ICCSE ’21), 113–118',
     short: 'ICCSE',
+    selected: false,
     links: { DOI: 'https://doi.org/10.1145/3503181.3503200' },
   },
 ]

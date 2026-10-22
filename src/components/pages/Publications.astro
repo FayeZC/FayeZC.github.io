@@ -5,6 +5,7 @@ import { ui } from '../../i18n/index.js'
 
 const { lang } = Astro.props
 const t = ui[lang]
+const selected = publications.filter((p) => p.selected !== false)
 
 // Paper titles and venues stay in English in both languages — translating them
 // would make the entries impossible to match against the published record.
@@ -12,13 +13,13 @@ const t = ui[lang]
 
 <Base lang={lang} path="/publications" title={t.nav.publications}>
   <section>
-    <h1>{t.nav.publications}</h1>
+    <h1>{t.selectedPublications}</h1>
   </section>
 
   <section>
     <div class="panel">
       <ol class="pubs">
-        {publications.map((p) => (
+        {selected.map((p) => (
           <li>
             <span class="pub-title">{p.title}</span>
             <span class="pub-authors">
