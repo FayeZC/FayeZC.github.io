@@ -1,7 +1,7 @@
 // Layout self-check: catch horizontal overflow and oversized elements across
 // viewports, and shoot screenshots for eyeballing proportions.
 import { chromium } from 'playwright'
-import { mkdir, readdir } from 'node:fs/promises'
+import { mkdir, readdir, readFile } from 'node:fs/promises'
 import { profile } from '../src/data/site.js'
 import { EMAIL_KEY } from '../src/lib/obfuscate.js'
 
@@ -20,14 +20,20 @@ const ORIGIN = process.env.ORIGIN ?? 'http://localhost:4321'
 const HOMES = ['/', '/zh/']
 
 // Post routes come from the content directory rather than a hardcoded list, so
-// a new post is covered by this sweep the moment it is written.
+// a new post is covered by this sweep the moment it is written. Drafts are left
+// out of the build, so they are left out here too rather than reported as 404s.
 async function postPaths(lang) {
   const dir = `src/content/blog/${lang}`
-  const files = await readdir(dir).catch(() => [])
+  const files = (await readdir(dir).catch(() => [])).filter((f) => f.endsWith('.md'))
   const prefix = lang === 'en' ? '' : `/${lang}`
-  return files
-    .filter((f) => f.endsWith('.md'))
-    .map((f) => `${prefix}/blog/${f.replace(/\.md$/, '')}`)
+  const paths = []
+  for (const f of files) {
+    const text = await readFile(`${dir}/${f}`, 'utf8')
+    const front = text.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? ''
+    if (/^draft:\s*true\s*$/m.test(front)) continue
+    paths.push(`${prefix}/blog/${f.replace(/\.md$/, '')}`)
+  }
+  return paths
 }
 
 const PAGES = [
