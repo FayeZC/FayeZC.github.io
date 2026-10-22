@@ -95,8 +95,8 @@ export const profile = {
   },
   // Sits last in the About panel, right above the contact links it points to.
   collab: {
-    en: 'I love talking about these questions! If they interest you too, I would be glad to hear from you, whether to chat, swap ideas, or work together.',
-    zh: '我很喜欢聊这些问题！如果你也感兴趣，不管是随便聊聊、交流想法，还是一起做点什么，都非常欢迎来找我。',
+    en: 'I love talking about these questions! If they interest you too, I would be glad to hear from you.',
+    zh: '我很喜欢聊这些问题！如果你也感兴趣，非常欢迎来找我。',
   },
   // No mailto here on purpose — the address is rendered through <EmailReveal>,
   // which keeps it out of the HTML until a real click.
