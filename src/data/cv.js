@@ -102,8 +102,8 @@ export const experience = [
     },
     bullets: [
       {
-        en: 'Designed and built OPAL, a course platform that helps teachers turn their own slides and notes into quizzes and practice; in use at Hunter College and several secondary schools.',
-        zh: '设计并开发 OPAL：帮助教师把自己的课件和笔记变成测验与练习的课程平台；已在 Hunter College 及多所中学投入使用。',
+        en: 'Designed and built OPAL, an open platform for adaptive learning: open to any course, because teachers bring their own slides and notes, and adaptive, because each student\'s practice follows their own mastery. In use at Hunter College and several secondary schools.',
+        zh: '设计并开发 OPAL，一个开放的自适应学习平台：开放，是因为任何课程都能使用，教师上传自己的课件和笔记即可；自适应，是因为每个学生的练习都跟随自己的掌握程度调整。已在 Hunter College 及多所中学投入使用。',
       },
       {
         en: 'For teachers: AI-drafted quizzes in which every question cites its source in the course materials, a review step so nothing reaches students without approval, and analytics showing which concepts the class struggles with.',
