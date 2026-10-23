@@ -85,18 +85,18 @@ export const profile = {
   // Separate paragraphs keep the research focus and applications easy to scan.
   bio: {
     en: [
-      'My research focuses on the security and privacy of agentic AI systems: how models, tools, memory, and permissions work together to access information and act in software environments. I study the software ecosystems these systems depend on, including reusable agent skills and tool integrations. I am interested in how malicious instructions, excessive permissions, and unintended information sharing can compromise these systems and the data they handle.',
-      'I also investigate how agentic AI systems can support security monitoring and digital forensics. My focus is on connecting incident evidence to authorized responses and verifiable recovery, while limiting the sensitive information exposed during investigation and oversight. More broadly, I am interested in privacy-preserving collaboration across agents and services.',
+      'My research focuses on the security and privacy of agentic AI systems, in which LLMs use tools, memory, and permissions to act in software environments. I study how these systems, and the skills and tools they depend on, can be compromised through malicious instructions, excessive permissions, or unintended information sharing.',
+      'I also study how agentic AI systems can support security monitoring and digital forensics while limiting the sensitive information exposed along the way.',
     ],
     zh: [
-      '我的研究聚焦于智能体 AI 系统的安全与隐私：模型、工具、记忆与权限如何协同，使系统能够访问信息并在软件环境中执行操作。我研究这些系统所依赖的软件生态，包括可复用的 agent skills 和工具集成，关注恶意指令、过度授权和非预期的信息共享如何危及系统及其处理的数据。',
-      '我也研究智能体 AI 系统如何支持安全监测与数字取证，重点关注如何将事件证据与经过授权的响应、可验证的恢复连接起来，同时限制调查和监督过程中敏感信息的暴露。更广泛地，我对智能体与服务之间的隐私保护协作感兴趣。',
+      '我的研究聚焦于智能体 AI 系统的安全与隐私。在这类系统中，LLM 借助工具、记忆和权限在软件环境中执行操作。我研究这些系统及其依赖的 skills 和工具，如何因恶意指令、过度授权或非预期的信息共享而被攻破。',
+      '我也研究智能体 AI 系统如何支持安全监测与数字取证，同时尽量减少过程中暴露的敏感信息。',
     ],
   },
   // Sits last in the About panel, right above the contact links it points to.
   collab: {
-    en: 'If they interest you too, I would be glad to hear from you.',
-    zh: '如果你也对这些问题感兴趣，非常欢迎来找我。',
+    en: 'If this work interests you, I would be glad to hear from you.',
+    zh: '如果你对这些研究感兴趣，非常欢迎来找我。',
   },
   // No mailto here on purpose — the address is rendered through <EmailReveal>,
   // which keeps it out of the HTML until a real click.

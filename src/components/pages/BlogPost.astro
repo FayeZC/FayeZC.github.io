@@ -3,6 +3,9 @@ import { render } from 'astro:content'
 import Base from '../../layouts/Base.astro'
 import { ui, localizePath, otherLang } from '../../i18n/index.js'
 import { slugOf, formatDate, translationPath } from '../../lib/blog.js'
+import { profile } from '../../data/site.js'
+import { sprite } from '../../lib/sprite.js'
+import { pick } from '../../i18n/index.js'
 
 const { lang, post } = Astro.props
 const t = ui[lang]
@@ -21,7 +24,7 @@ const translated = otherPath !== '/blog'
   description={post.data.summary}
 >
   <section>
-    <h1>{post.data.title}</h1>
+    <h1 class="post-title">{post.data.title}</h1>
     <p class="post-meta">
       <time datetime={post.data.date.toISOString().slice(0, 10)}>
         {t.postedOn} {formatDate(post.data.date, lang)}
@@ -32,8 +35,20 @@ const translated = otherPath !== '/blog'
   </section>
 
   <section>
-    <article class="panel prose">
+    {/* Written on letterhead: a centred name block up top, a sign-off at the
+        bottom. Both are decoration around the post rather than part of it, so
+        the post's own Markdown never has to carry them. */}
+    <article class="panel prose letter">
+      <header class="letterhead">
+        <span class="pixel letterhead-name">{pick(profile.name, lang)}</span>
+        <span class="letterhead-sub">{pick(profile.affiliation, lang)}</span>
+      </header>
       <Content />
+      {/* A div, not <footer>: the site footer styles every footer element. */}
+      <div class="signoff">
+        <span class="pixel">— Faye</span>
+        <img {...sprite('trike-45')} alt="" />
+      </div>
     </article>
   </section>
 
