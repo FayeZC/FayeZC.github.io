@@ -102,16 +102,16 @@ export const experience = [
     },
     bullets: [
       {
-        en: 'Designed and built OPAL, a course platform in which teachers upload their own materials and an LLM drafts quizzes for teacher approval; in use at Hunter College and several secondary schools.',
-        zh: '设计并开发 OPAL：教师上传自己的课程材料，由 LLM 起草测验、教师审核后发布；已在 Hunter College 及多所中学投入使用。',
+        en: 'Designed and built OPAL, a course platform that helps teachers turn their own slides and notes into quizzes and practice; in use at Hunter College and several secondary schools.',
+        zh: '设计并开发 OPAL：帮助教师把自己的课件和笔记变成测验与练习的课程平台；已在 Hunter College 及多所中学投入使用。',
       },
       {
-        en: 'Built a Claude (Vertex AI) pipeline that extracts weekly knowledge points from course PDFs and generates questions that each cite their source sentence and explain the answer, plus a self-paced practice pool that tracks per-concept mastery.',
-        zh: '基于 Vertex AI 上的 Claude 搭建生成流程：从课程 PDF 中按周抽取知识点，生成的每道题都标注出处原句并附解析；并提供按知识点追踪掌握度的自主练习题库。',
+        en: 'For teachers: AI-drafted quizzes in which every question cites its source in the course materials, a review step so nothing reaches students without approval, and analytics showing which concepts the class struggles with.',
+        zh: '面向教师：由 AI 起草测验，每道题都注明在课程材料中的出处；所有内容经教师审核后才会发给学生；并通过数据分析展示全班在哪些知识点上遇到困难。',
       },
       {
-        en: 'Engineered the full stack (Next.js, TypeScript, PostgreSQL, Cloud Run) with strict per-course isolation and an append-only student action log for learning analytics.',
-        zh: '完成全栈开发（Next.js、TypeScript、PostgreSQL、Cloud Run），实现严格的课程间数据隔离，以及用于学习分析的只追加学生行为日志。',
+        en: 'For students: self-paced practice that tracks mastery of each concept, points to weak spots, and never affects grades.',
+        zh: '面向学生：按自己的节奏练习，系统追踪每个知识点的掌握情况、指出薄弱环节，且练习不计入成绩。',
       },
     ],
   },
