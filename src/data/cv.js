@@ -91,8 +91,8 @@ export const experience = [
   },
   {
     title: {
-      en: 'OPAL: Open Platform for Adaptive Learning Analytics',
-      zh: 'OPAL：开放式自适应学习分析平台',
+      en: 'OPAL: Open Platform for Adaptive Learning',
+      zh: 'OPAL：开放式自适应学习平台',
     },
     when: { en: 'Sep 2026 – Present', zh: '2026.09 – 至今' },
     where: { en: 'New York, NY', zh: '美国纽约' },
@@ -102,8 +102,8 @@ export const experience = [
     },
     bullets: [
       {
-        en: 'Designed and built OPAL, an open platform for adaptive learning: open to any course, because teachers bring their own slides and notes, and adaptive, because each student\'s practice follows their own mastery. In use at Hunter College and several secondary schools.',
-        zh: '设计并开发 OPAL，一个开放的自适应学习平台：开放，是因为任何课程都能使用，教师上传自己的课件和笔记即可；自适应，是因为每个学生的练习都跟随自己的掌握程度调整。已在 Hunter College 及多所中学投入使用。',
+        en: 'Designed and built OPAL (Open Platform for Adaptive Learning): open to any course, because teachers bring their own slides and notes, and adaptive, because each student\'s practice follows their own mastery. In use at Hunter College and several secondary schools.',
+        zh: '设计并开发 OPAL（Open Platform for Adaptive Learning，开放式自适应学习平台）：开放，是因为任何课程都能使用，教师上传自己的课件和笔记即可；自适应，是因为每个学生的练习都跟随自己的掌握程度调整。已在 Hunter College 及多所中学投入使用。',
       },
       {
         en: 'For teachers: AI-drafted quizzes in which every question cites its source in the course materials, a review step so nothing reaches students without approval, and analytics showing which concepts the class struggles with.',
