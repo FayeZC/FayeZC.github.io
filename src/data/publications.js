@@ -25,6 +25,14 @@ export const me = 'Zhang, C.'
 export const publications = [
   {
     year: 2026,
+    authors: ['Zhang, C.', 'Ji, P.'],
+    title: 'Toward Responsible Agentic AI Systems: Measuring the Audit Evidence Behind Agent Actions in the Cloud',
+    venue: 'Under review',
+    short: 'Under review',
+    links: {},
+  },
+  {
+    year: 2026,
     authors: ['Zhang, C.', 'Ji, P.', 'Zhang, Z.'],
     title: '“We Have Never Been Attacked”: Unpacking the Illusion of Cybersecurity in Small Business',
     venue: 'USENIX Symposium on Usable Privacy and Security (SOUPS 2026), Poster',
@@ -64,6 +72,14 @@ export const publications = [
     venue: 'International Conference on Web-Based Learning (ICWL 2025), 240–255',
     short: 'ICWL',
     links: { DOI: 'https://doi.org/10.1007/978-981-92-0042-9_18' },
+  },
+  {
+    year: 2024,
+    authors: ['Baravkar, S.', 'Zhang, C.', 'Hassan, F.', 'Cheng, L.', 'Song, Z.'],
+    title: 'Decoding and Answering Developers’ Questions About Web Services Managed by Marketplaces',
+    venue: 'IEEE International Conference on Software Services Engineering (SSE 2024), 194–203',
+    short: 'SSE',
+    links: {},
   },
   {
     year: 2023,

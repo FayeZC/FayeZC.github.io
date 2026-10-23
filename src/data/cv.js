@@ -34,7 +34,35 @@ export const awards = [
 ]
 
 // `role` is the CV's second line: position, supervisor and what came out of it.
+// Bullets follow the usual CV shape: what was done, the key technical
+// contribution, and the outcome.
 export const experience = [
+  {
+    title: {
+      en: 'Accountability of Agentic AI Systems in the Cloud',
+      zh: '云上智能体 AI 系统的问责',
+    },
+    when: { en: 'Sep 2026 – Present', zh: '2026.09 – 至今' },
+    where: { en: 'New York, NY', zh: '美国纽约' },
+    role: {
+      en: 'Supervisor: Prof. Ping Ji · Paper under review',
+      zh: '导师：纪平教授 · 论文审稿中',
+    },
+    bullets: [
+      {
+        en: 'Conducted a large-scale measurement of audit evidence for LLM agent actions on Google Cloud and AWS, combining controlled agent deployments with scans of public agent and infrastructure-as-code repositories.',
+        zh: '在 Google Cloud 与 AWS 上对 LLM agent 行为的审计证据开展大规模测量，结合受控的 agent 部署实验与对公开 agent 及基础设施即代码仓库的扫描。',
+      },
+      {
+        en: 'Found that even with full logging, provider records attribute agent actions to the credential rather than the agent and cannot link an action to the model decision behind it; few public projects enable even the records that exist.',
+        zh: '发现即使开启全部日志，云平台记录也只把 agent 的行为归到凭证而非 agent 本身，且无法把一次操作与其背后的模型决策关联起来；而公开项目中连现有记录都很少开启。',
+      },
+      {
+        en: 'Designed a tamper-evident agent-side record that links each action to its decision through identifiers that provider logs also carry, and validated it against provider records on both clouds; paper under review.',
+        zh: '设计了一种防篡改的 agent 端记录，借助云平台日志同样携带的标识符把每次操作与其决策关联起来，并在两个云平台上与平台记录完成交叉验证；论文审稿中。',
+      },
+    ],
+  },
   {
     title: {
       en: 'Usable Security for Small Businesses',
@@ -43,17 +71,21 @@ export const experience = [
     when: { en: 'Oct 2024 – Present', zh: '2024.10 – 至今' },
     where: { en: 'New York, NY', zh: '美国纽约' },
     role: {
-      en: 'Student Principal Investigator · Supervisor: Prof. Ping Ji · Full paper manuscript in preparation',
-      zh: '学生负责人 · 导师：纪平教授 · 完整论文稿件准备中',
+      en: 'Student Principal Investigator · Supervisor: Prof. Ping Ji · Full paper under review',
+      zh: '学生负责人 · 导师：纪平教授 · 完整论文审稿中',
     },
     bullets: [
       {
-        en: 'Independently designed and conducted a mixed-methods study (N=128) on small business cybersecurity, including all participant interviews, survey deployment, qualitative analysis, and manuscript writing.',
-        zh: '独立设计并执行了一项关于小型企业网络安全的混合方法研究（N=128），包含全部访谈、问卷投放、质性分析与论文撰写。',
+        en: 'Designed and led a mixed-methods study of small-business cybersecurity (N=128: interviews, surveys, and 102 founder intercepts), conducting all data collection, qualitative analysis, and writing.',
+        zh: '设计并主导了一项小型企业网络安全的混合方法研究（N=128，含访谈、问卷与 102 位创业者现场访问），独立完成全部数据收集、质性分析与写作。',
       },
       {
-        en: 'Found that small business workers believe they are well-protected but often lack real security measures — a gap we call the security illusion, driven by semantic narrowing, structural invisibility, and delegated trust.',
-        zh: '发现小型企业员工普遍自认防护良好，实际却缺少真实的安全措施；我们把这一落差称为「安全幻觉」，其成因是语义窄化、结构性不可见与信任外包。',
+        en: 'Found that owners often report never being attacked even though 81% of small businesses reported a breach in the previous year (ITRC 2025), and traced this security illusion to semantic narrowing, structural invisibility, and delegated trust.',
+        zh: '发现尽管 81% 的小型企业在过去一年报告过安全事件（ITRC 2025），企业主仍常说自己从未被攻击；并将这种「安全幻觉」归因于语义窄化、结构性不可见与信任外包。',
+      },
+      {
+        en: 'Derived design implications for small AI-enabled teams, such as default-on audit signals and clear cloud responsibility boundaries; USENIX SOUPS 2026 poster, full paper under review.',
+        zh: '据此为小型 AI 团队提出设计建议，如默认开启的审计信号与清晰的云服务责任边界；成果发表为 USENIX SOUPS 2026 海报，完整论文审稿中。',
       },
     ],
   },
@@ -70,12 +102,16 @@ export const experience = [
     },
     bullets: [
       {
-        en: 'Led a large-scale empirical study of 138K SKILL.md files published after the agent skill format emerged, characterizing what prevents skills from being reused across projects (first author).',
-        zh: '主导了一项针对 138K 个 SKILL.md 文件的大规模实证研究，刻画是什么阻碍了 skill 在项目间复用（第一作者）。',
+        en: 'Measured 138,133 public SKILL.md files from 20,556 repositories against a defect taxonomy grounded in the official specification, finding that 91.8% contain at least one defect, mostly ordinary packaging problems such as weak routing metadata (first author).',
+        zh: '对来自 20,556 个仓库的 138,133 个公开 SKILL.md 文件，依据官方规范建立的缺陷分类进行测量，发现 91.8% 至少含一个缺陷，且主要是路由元数据薄弱等普通的打包问题（第一作者）。',
       },
       {
-        en: 'Co-developed SkillsMetric, mapping where static analysis succeeds and fails at detecting malicious agent skills.',
-        zh: '共同开发 SkillsMetric，刻画静态分析在检测恶意 agent skill 时的能力边界。',
+        en: 'Showed with a routing stress test over 20,000 skills that these defects make skills harder for agents to retrieve, and proposed a quality-assured generation workflow combining spec-aware prompting, linting, automated repair, and safety gating.',
+        zh: '通过对 20,000 个 skill 的路由压力测试，证明这些缺陷会降低 agent 检索 skill 的可靠性；并提出结合规范感知提示、lint 检查、自动修复与安全把关的质量保障生成流程。',
+      },
+      {
+        en: 'Co-developed SkillsMetric, a five-stage static analysis framework for malicious skills (AUC 0.93 on 2,266 adversarial skills across 16 attack types), and identified its blind spots: host-destruction attacks evade all stages and prompt injection reaches only 42% detection, motivating defense in depth.',
+        zh: '共同开发 SkillsMetric：一个五阶段的恶意 skill 静态分析框架（在覆盖 16 类攻击的 2,266 个对抗样本上 AUC 为 0.93），并找出其盲区：主机破坏类攻击可绕过全部阶段，提示注入的检出率仅 42%，说明需要纵深防御。',
       },
     ],
   },
@@ -92,8 +128,12 @@ export const experience = [
     },
     bullets: [
       {
-        en: 'Built and configured multi-agent experimental environments on the CybORG CAGE Challenges, and ran prompt ablations benchmarking GPT-4o and GPT-5.2 as autonomous Blue defenders.',
-        zh: '基于 CybORG CAGE Challenge 搭建并配置多 agent 实验环境，通过 prompt 消融实验对比 GPT-4o 与 GPT-5.2 作为自主蓝方防御者的表现。',
+        en: 'Built multi-agent experimental environments on the CybORG CAGE Challenges to evaluate LLMs as autonomous Blue-team defenders.',
+        zh: '基于 CybORG CAGE Challenge 搭建多 agent 实验环境，评估 LLM 作为自主蓝方防御者的能力。',
+      },
+      {
+        en: 'Ran prompt ablations benchmarking GPT-4o and GPT-5.2; presented as a poster at AIX Summit 2026.',
+        zh: '通过 prompt 消融实验对比 GPT-4o 与 GPT-5.2；成果以海报形式发表于 AIX Summit 2026。',
       },
     ],
   },
@@ -104,8 +144,12 @@ export const experience = [
     role: { en: 'Supervisor: Prof. Ping Ji', zh: '导师：纪平教授' },
     bullets: [
       {
-        en: 'Full-stack developer for AeDA (Attainable eDucation for All), an AI-powered platform delivering personalized, goal-oriented learning paths. Built the mobile app and web portal, and architected the data storage infrastructure on Google Cloud Platform.',
-        zh: '担任 AeDA（Attainable eDucation for All）的全栈开发。该平台用 AI 生成个性化、目标导向的学习路径；我负责移动端与 Web 端的设计实现，并在 Google Cloud Platform 上设计了数据存储架构。',
+        en: 'Full-stack developer for AeDA (Attainable eDucation for All), an AI-powered platform that generates personalized, goal-oriented learning paths.',
+        zh: '担任 AeDA（Attainable eDucation for All）的全栈开发；该平台用 AI 生成个性化、目标导向的学习路径。',
+      },
+      {
+        en: 'Designed and built the mobile app and web portal, and architected the platform\'s data storage on Google Cloud Platform.',
+        zh: '设计并实现移动端与 Web 端，并在 Google Cloud Platform 上设计了平台的数据存储架构。',
       },
     ],
   },
@@ -122,8 +166,23 @@ export const experience = [
     },
     bullets: [
       {
-        en: 'Contributed dataset curation and manuscript writing for a graph-aware knowledge tracing framework, combining educator-curated knowledge graphs with Transformer models to generate learning paths inside AeDA.',
-        zh: '参与一个图感知知识追踪框架的数据集构建与论文撰写；该框架把教师整理的知识图谱与 Transformer 模型结合，在 AeDA 内生成学习路径。',
+        en: 'Curated datasets and co-wrote the manuscript for a graph-aware knowledge tracing framework that combines educator-curated knowledge graphs with Transformer models to generate learning paths in AeDA; published at ICWL 2025.',
+        zh: '为一个图感知知识追踪框架构建数据集并参与论文撰写；该框架将教师整理的知识图谱与 Transformer 模型结合，在 AeDA 中生成学习路径；发表于 ICWL 2025。',
+      },
+    ],
+  },
+  {
+    title: {
+      en: 'Research Assistant, University of Michigan',
+      zh: '密歇根大学 研究助理',
+    },
+    when: { en: 'Aug 2023 – Dec 2023', zh: '2023.08 – 2023.12' },
+    where: { en: 'Ann Arbor and Dearborn, MI', zh: '美国密歇根州安娜堡与迪尔伯恩' },
+    role: { en: 'Web Services Research', zh: 'Web 服务研究' },
+    bullets: [
+      {
+        en: 'Analyzed developer questions about marketplace-managed web services, classifying question topics and answer patterns to inform API documentation and support; published at IEEE SSE 2024.',
+        zh: '分析开发者关于平台托管 Web 服务的提问，对问题主题与回答模式进行分类，为改进 API 文档与支持提供依据；发表于 IEEE SSE 2024。',
       },
     ],
   },
@@ -140,18 +199,25 @@ export const experience = [
     },
     bullets: [
       {
-        en: 'Interdisciplinary research on computational music analysis for health applications: co-authored a survey (IJCS 2023) and developed a dynamic rhythm-matching algorithm (ICCSE ’21).',
-        zh: '面向健康应用的计算音乐分析交叉研究：合作撰写综述（IJCS 2023），并开发了一种动态节奏匹配算法（ICCSE ’21）。',
+        en: 'Co-authored a survey of music intervention in human life, work, and disease (IJCS 2023), and developed a rhythm-matching algorithm based on dynamic step frequency (ICCSE ’21).',
+        zh: '合作撰写音乐干预在生活、工作与疾病中应用的综述（IJCS 2023），并开发了基于动态步频的节奏匹配算法（ICCSE ’21）。',
       },
       {
-        en: 'Contributed to digitizing Traditional Chinese Medicine manuscripts through image preprocessing, optical character recognition, and structured data annotation.',
-        zh: '参与中医古籍数字化，负责图像预处理、光学字符识别与结构化数据标注。',
+        en: 'Digitized Traditional Chinese Medicine manuscripts through image preprocessing, optical character recognition, and structured data annotation.',
+        zh: '通过图像预处理、光学字符识别与结构化数据标注，参与中医古籍数字化。',
       },
     ],
   },
 ]
 
 export const teaching = [
+  {
+    when: { en: 'Fall 2026', zh: '2026 秋' },
+    what: {
+      en: 'CSCI 49395 — Big Data Analytics and Applied Privacy, Hunter College, CUNY (Teaching Assistant)',
+      zh: 'CSCI 49395 大数据分析与应用隐私，纽约市立大学 Hunter College（助教）',
+    },
+  },
   {
     when: { en: 'Spring 2026', zh: '2026 春' },
     what: {
