@@ -91,6 +91,32 @@ export const experience = [
   },
   {
     title: {
+      en: 'OPAL: Open Platform for Adaptive Learning Analytics',
+      zh: 'OPAL：开放式自适应学习分析平台',
+    },
+    when: { en: 'Sep 2026 – Present', zh: '2026.09 – 至今' },
+    where: { en: 'New York, NY', zh: '美国纽约' },
+    role: {
+      en: 'PI: Prof. Ping Ji · Designer and developer',
+      zh: '项目负责人：纪平教授 · 设计与开发',
+    },
+    bullets: [
+      {
+        en: 'Designed and built OPAL, a course platform in which teachers upload their own materials and an LLM drafts quizzes for teacher approval; in use at Hunter College and several secondary schools.',
+        zh: '设计并开发 OPAL：教师上传自己的课程材料，由 LLM 起草测验、教师审核后发布；已在 Hunter College 及多所中学投入使用。',
+      },
+      {
+        en: 'Built a Claude (Vertex AI) pipeline that extracts weekly knowledge points from course PDFs and generates questions that each cite their source sentence and explain the answer, plus a self-paced practice pool that tracks per-concept mastery.',
+        zh: '基于 Vertex AI 上的 Claude 搭建生成流程：从课程 PDF 中按周抽取知识点，生成的每道题都标注出处原句并附解析；并提供按知识点追踪掌握度的自主练习题库。',
+      },
+      {
+        en: 'Engineered the full stack (Next.js, TypeScript, PostgreSQL, Cloud Run) with strict per-course isolation and an append-only student action log for learning analytics.',
+        zh: '完成全栈开发（Next.js、TypeScript、PostgreSQL、Cloud Run），实现严格的课程间数据隔离，以及用于学习分析的只追加学生行为日志。',
+      },
+    ],
+  },
+  {
+    title: {
       en: 'Reusability and Security of Agent Skills',
       zh: 'Agent Skill 的可复用性与安全性',
     },
