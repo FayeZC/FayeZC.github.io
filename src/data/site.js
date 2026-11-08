@@ -86,11 +86,11 @@ export const profile = {
   bio: {
     en: [
       'My research focuses on the security and privacy of agentic AI systems, in which LLMs use tools, memory, and permissions to act in software environments. I study how these systems, and the skills and tools they depend on, can be compromised through malicious instructions, excessive permissions, or unintended information sharing.',
-      'I also study how agentic AI systems can support security monitoring and digital forensics while limiting the sensitive information exposed along the way.',
+      'I also study how agentic AI systems can support security monitoring and digital forensics while limiting the sensitive information exposed along the way. More broadly, I am interested in network design for distributed communication among AI agents, especially early warning of threats that spread from one agent to another.',
     ],
     zh: [
       '我的研究聚焦于智能体 AI 系统的安全与隐私。在这类系统中，LLM 借助工具、记忆和权限在软件环境中执行操作。我研究这些系统及其依赖的 skills 和工具，如何因恶意指令、过度授权或非预期的信息共享而被攻破。',
-      '我也研究智能体 AI 系统如何支持安全监测与数字取证，同时尽量减少过程中暴露的敏感信息。',
+      '我也研究智能体 AI 系统如何支持安全监测与数字取证，同时尽量减少过程中暴露的敏感信息。更广泛地，我对多 agent 分布式通信的网络设计感兴趣，尤其是跨 agent 威胁的提前预警。',
     ],
   },
   // Sits last in the About panel, right above the contact links it points to.
@@ -132,6 +132,7 @@ export const interests = [
   { en: 'Privacy', zh: '隐私' },
   { en: 'Accountability & Digital Forensics', zh: '问责与数字取证' },
   { en: 'Cloud Security', zh: '云安全' },
+  { en: 'Multi-Agent Networks', zh: '多智能体网络' },
   { en: 'Usable Security', zh: '可用安全' },
   { en: 'LLM-Assisted Education', zh: '大模型辅助教育' },
 ]
