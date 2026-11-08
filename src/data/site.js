@@ -148,8 +148,8 @@ export const news = [
   {
     date: '2026-08',
     body: {
-      en: 'Two posters accepted to SOUPS 2026, including “We Have Never Been Attacked”: Unpacking the Illusion of Cybersecurity in Small Business.',
-      zh: '两篇海报入选 SOUPS 2026，其中包括 “We Have Never Been Attacked”: Unpacking the Illusion of Cybersecurity in Small Business。',
+      en: 'Two posters accepted to SOUPS 2026.',
+      zh: '两篇海报入选 SOUPS 2026。',
     },
   },
   {
