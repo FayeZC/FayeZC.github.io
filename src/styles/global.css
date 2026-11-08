@@ -467,11 +467,39 @@ html[lang='zh-CN'] .topbar nav a {
 .news li:last-child {
   border-bottom: 0;
 }
-/* Sits outside the panel, under its bottom-left corner; the margin clears the
-   panel's drop shadow. */
+/* A light text toggle under the panel's bottom-right corner: no box, just an
+   underline and a chevron that turns when the list is open. The margin clears
+   the panel's drop shadow. */
 .news-toggle {
-  margin-top: 1.2rem;
+  display: block;
+  margin: 1rem 0 0 auto;
+  padding: 0.2rem 0;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--fern);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
   cursor: pointer;
+}
+.news-toggle::after {
+  content: '';
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  margin-left: 0.45em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-0.2em) rotate(45deg);
+  transition: transform 0.2s;
+}
+.news-toggle[aria-expanded='true']::after {
+  transform: translateY(0.05em) rotate(-135deg);
+}
+.news-toggle:hover {
+  color: var(--amber);
 }
 /* .news li sets display: grid, which would otherwise beat the hidden attribute. */
 .news li[hidden] {

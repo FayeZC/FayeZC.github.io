@@ -115,12 +115,12 @@ const olderNews = news.slice(5)
         {olderNews.map((item) => <NewsItem item={item} lang={lang} hidden />)}
       </ul>
     </div>
-    {/* Outside the panel, under its bottom-left corner, like the All posts
-        button under a blog post. */}
+    {/* Outside the panel, under its bottom-right corner: a light text toggle
+        rather than a boxed button, since it only reveals more of the same list. */}
     {
       olderNews.length > 0 && (
         <button
-          class="button news-toggle"
+          class="news-toggle"
           type="button"
           aria-expanded="false"
           aria-controls="news-list"
