@@ -148,8 +148,8 @@ export const news = [
   {
     date: '2026-08',
     body: {
-      en: 'Two posters accepted to SOUPS 2026.',
-      zh: '两篇海报入选 SOUPS 2026。',
+      en: 'Two posters accepted to USENIX SOUPS 2026.',
+      zh: '两篇海报入选 USENIX SOUPS 2026。',
     },
   },
   {
