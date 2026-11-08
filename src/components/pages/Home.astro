@@ -1,13 +1,17 @@
 ---
 import Base from '../../layouts/Base.astro'
 import EmailReveal from '../EmailReveal.astro'
+import NewsItem from '../NewsItem.astro'
 import { profile, education, interests, news, members } from '../../data/site.js'
 import { ui, pick, localizePath } from '../../i18n/index.js'
 import { sprite, photo } from '../../lib/sprite.js'
 
 const { lang } = Astro.props
 const t = ui[lang]
+// The newest five show; the rest wait behind a More toggle. <details> rather
+// than script, so it works with JavaScript off and is announced as expandable.
 const latestNews = news.slice(0, 5)
+const olderNews = news.slice(5)
 ---
 
 <Base lang={lang} path="/">
@@ -107,18 +111,21 @@ const latestNews = news.slice(0, 5)
     <div class="panel">
       <h2>{t.news}</h2>
       <ul class="news">
-        {
-          latestNews.map((item) => (
-            <li>
-              <time datetime={item.date}>{item.date}</time>
-              <span>
-                {pick(item.body, lang)}
-                {item.logo && <img class="news-logo" src={item.logo.src} alt={pick(item.logo.alt, lang)} />}
-              </span>
-            </li>
-          ))
-        }
+        {latestNews.map((item) => <NewsItem item={item} lang={lang} />)}
       </ul>
+      {
+        olderNews.length > 0 && (
+          <details class="news-more">
+            <summary class="button">
+              <span class="when-closed">{t.moreNews}</span>
+              <span class="when-open">{t.lessNews}</span>
+            </summary>
+            <ul class="news">
+              {olderNews.map((item) => <NewsItem item={item} lang={lang} />)}
+            </ul>
+          </details>
+        )
+      }
     </div>
   </section>
 

@@ -59,6 +59,8 @@ export const ui = {
     blogEmpty: 'Nothing written yet. A post is one Markdown file, so this will not stay empty long.',
     readMore: 'Read',
     backToBlog: 'All posts',
+    moreNews: 'More',
+    lessNews: 'Less',
     postedOn: 'Posted',
     // Shown on a post that exists in one language only.
     noTranslation: 'This post has no Chinese version yet.',
@@ -100,6 +102,8 @@ export const ui = {
     blogEmpty: '还没有写。一篇文章就是一个 Markdown 文件，所以不会空太久。',
     readMore: '阅读',
     backToBlog: '全部文章',
+    moreNews: '更多',
+    lessNews: '收起',
     postedOn: '发布于',
     noTranslation: '这篇还没有英文版。',
 

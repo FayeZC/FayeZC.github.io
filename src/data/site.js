@@ -85,12 +85,12 @@ export const profile = {
   // Separate paragraphs keep the research focus and applications easy to scan.
   bio: {
     en: [
-      'My research focuses on the security and privacy of agentic AI systems, in which LLMs use tools, memory, and permissions to act in software environments. I study how these systems, and the skills and tools they depend on, can be compromised through malicious instructions, excessive permissions, or unintended information sharing.',
-      'I also study how agentic AI systems can support security monitoring and digital forensics while limiting the sensitive information exposed along the way. More broadly, I am interested in network design for distributed multi-agent communication, particularly early warning of threats that propagate across agents.',
+      'My research focuses on the security and privacy of agentic AI systems, in which LLMs operate with tools, memory, and delegated permissions in software environments. I study how these systems, and the skills and tools they depend on, can be compromised through malicious instructions, excessive permissions, and unintended information disclosure.',
+      'I also study how agentic AI systems can support security monitoring and digital forensics while minimizing the exposure of sensitive information. More broadly, I am interested in network design for distributed multi-agent communication, particularly early warning of threats that propagate across agents.',
     ],
     zh: [
-      '我的研究聚焦于智能体 AI 系统的安全与隐私。在这类系统中，LLM 借助工具、记忆和权限在软件环境中执行操作。我研究这些系统及其依赖的 skills 和工具，如何因恶意指令、过度授权或非预期的信息共享而被攻破。',
-      '我也研究智能体 AI 系统如何支持安全监测与数字取证，同时尽量减少过程中暴露的敏感信息。更广泛地，我关注分布式多智能体通信的网络设计，尤其是跨智能体传播威胁的早期预警。',
+      '我的研究聚焦于智能体 AI 系统的安全与隐私。在这类系统中，LLM 借助工具、记忆与被委托的权限在软件环境中运行。我研究这些系统及其依赖的 skills 与工具如何因恶意指令、过度授权和非预期的信息泄露而被攻破。',
+      '我也研究智能体 AI 系统如何在尽量减少敏感信息暴露的前提下，支持安全监测与数字取证。更广泛地，我关注分布式多智能体通信的网络设计，尤其是跨智能体传播威胁的早期预警。',
     ],
   },
   // Sits last in the About panel, right above the contact links it points to.
