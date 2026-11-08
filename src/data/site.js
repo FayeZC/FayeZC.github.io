@@ -149,8 +149,8 @@ export const news = [
   {
     date: '2026-10',
     body: {
-      en: 'OPAL (Open Platform for Adaptive Learning), which I led the design and development of, is now in use in several courses! It helps teachers draft quizzes with AI and gives students a place to practice. Many thanks to our wonderful students and to my advisor for their support.',
-      zh: '我主导设计与开发的产品 OPAL（Open Platform for Adaptive Learning）已在部分课程中投入使用啦！它是一款 AI 辅助教师生成测验、帮助学生练习的学习助手。感谢优秀的同学们和导师的支持！',
+      en: 'OPAL (Open Platform for Adaptive Learning), which I led the design and development of, is now in use in several courses! It helps teachers draft quizzes and gives students a place to practice. Many thanks to our wonderful students and to my advisor for their support.',
+      zh: '我主导设计与开发的产品 OPAL（Open Platform for Adaptive Learning）已在部分课程中投入使用啦！它帮助教师生成测验，也让学生有地方练习。感谢优秀的同学们和导师的支持！',
     },
     // Optional small logo after the text. A vector file, so it scales freely —
     // the whole-number rule only applies to the pixel sprites.
