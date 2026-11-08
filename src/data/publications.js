@@ -14,7 +14,8 @@
 export const me = 'Zhang, C.'
 
 // One list, newest first, papers and posters together; the venue line already
-// says which is which. Within a year, order by acceptance date.
+// says which is which. Within a year, order by acceptance date. Accepted or
+// published work only — nothing under review.
 // `selected: false` keeps an entry on the CV page but off /publications, which
 // shows selected work only.
 //
@@ -23,14 +24,6 @@ export const me = 'Zhang, C.'
 // conference poster does — the site's own address is still gated behind
 // <EmailReveal>, but these are the boards as they were shown.
 export const publications = [
-  {
-    year: 2026,
-    authors: ['Zhang, C.', 'Ji, P.'],
-    title: 'Toward Responsible Agentic AI Systems: Measuring the Audit Evidence Behind Agent Actions in the Cloud',
-    venue: 'Under review',
-    short: 'Under review',
-    links: {},
-  },
   {
     year: 2026,
     authors: ['Zhang, C.', 'Ji, P.', 'Zhang, Z.'],
