@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 420" role="img" aria-labelledby="title desc">
+  <title id="title">OPAL hand-drawn logo</title>
+  <desc id="desc">An irregular hand-drawn opal gemstone with pastel facets, sparkle marks, OPAL lettering, and a blue underline.</desc>
+  <defs>
+    <clipPath id="gemClip">
+      <path d="M117 126 L206 76 L286 104 L314 148 L331 245 L301 299 L241 347 L153 334 L95 287 L74 222 L91 169 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- gemstone pastel body -->
+  <g clip-path="url(#gemClip)">
+    <rect x="60" y="65" width="290" height="300" fill="#fffdf6"/>
+    <path d="M74 170 C118 116 151 103 219 87 C188 135 163 169 112 206 C96 205 83 192 74 170 Z" fill="#fff0a8" opacity="0.82"/>
+    <path d="M186 84 C234 90 286 101 320 148 C293 152 255 175 223 199 C191 188 175 149 186 84 Z" fill="#a9ddff" opacity="0.9"/>
+    <path d="M88 210 C118 190 147 191 187 206 C170 241 139 268 106 276 C91 259 80 237 88 210 Z" fill="#bdb4ff" opacity="0.82"/>
+    <path d="M118 260 C156 234 196 232 233 247 C213 289 188 326 153 334 C132 320 117 293 118 260 Z" fill="#b7f0da" opacity="0.88"/>
+    <path d="M205 198 C238 169 282 160 320 165 C323 194 330 226 331 245 C313 260 288 279 256 286 C228 266 207 236 205 198 Z" fill="#ffe39d" opacity="0.92"/>
+    <path d="M230 265 C263 243 301 244 325 253 C318 276 309 294 295 310 C277 329 259 340 240 347 C223 325 218 293 230 265 Z" fill="#ffb9aa" opacity="0.86"/>
+    <path d="M275 111 C298 130 315 153 320 179 C305 177 291 178 278 184 C271 159 270 136 275 111 Z" fill="#d8f2ff" opacity="0.9"/>
+    <!-- loose watercolor streaks -->
+    <path d="M129 150 C164 133 196 119 236 112" stroke="#ffffff" stroke-width="9" opacity="0.55" stroke-linecap="round" fill="none"/>
+    <path d="M107 244 C146 221 187 213 225 219" stroke="#ffffff" stroke-width="7" opacity="0.48" stroke-linecap="round" fill="none"/>
+    <path d="M167 300 C207 283 247 277 286 275" stroke="#ffffff" stroke-width="8" opacity="0.43" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- subtle internal facets -->
+  <g fill="none" stroke="#4f89ba" stroke-width="4" opacity="0.72" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M91 169 L112 214 L153 334"/>
+    <path d="M112 214 L168 286 L241 347"/>
+    <path d="M206 76 L200 128"/>
+    <path d="M286 104 L298 228 L331 245"/>
+    <path d="M168 286 L258 287 L301 299"/>
+  </g>
+
+  <!-- deliberately imperfect outer outline: two near-overlapping strokes -->
+  <path d="M117 126 L206 76 L286 104 L314 148 L331 245 L301 299 L241 347 L153 334 L95 287 L74 222 L91 169 Z"
+        fill="none" stroke="#242424" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M120 129 L208 81 L281 108 L310 151 L326 243 L298 294 L239 342 L157 330 L100 284 L79 223 L95 172 Z"
+        fill="none" stroke="#242424" stroke-width="3" opacity="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ground scribble -->
+  <g fill="none" stroke="#2b2b2b" stroke-linecap="round">
+    <path d="M67 357 C104 349 146 352 179 357 C148 360 113 365 84 365" stroke-width="5"/>
+    <path d="M104 370 C142 365 182 366 214 371" stroke-width="4" opacity="0.8"/>
+  </g>
+
+  <!-- sparkles -->
+  <g stroke="#262626" stroke-width="10" stroke-linecap="round">
+    <path d="M308 56 L294 88"/>
+    <path d="M346 96 L313 118"/>
+    <path d="M359 150 L391 150"/>
+  </g>
+
+  <!-- hand-drawn OPAL wordmark -->
+  <g fill="none" stroke="#262626" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <!-- O -->
+    <path d="M455 171 C473 133 512 117 541 136 C567 153 567 202 548 243 C530 281 493 304 462 288 C429 271 433 219 455 171 Z"/>
+    <path d="M463 174 C480 141 509 128 532 141" stroke-width="4" opacity="0.5"/>
+    <!-- P -->
+    <path d="M583 283 C588 246 596 206 603 164 C607 143 611 132 614 122"/>
+    <path d="M615 125 C653 112 686 123 684 157 C682 187 648 206 600 207"/>
+    <path d="M607 132 C643 122 674 127 675 153" stroke-width="4" opacity="0.5"/>
+    <!-- A -->
+    <path d="M704 284 C723 237 743 189 768 143 C777 127 786 118 794 131 C805 160 818 217 829 281"/>
+    <path d="M733 224 C765 216 790 215 817 221"/>
+    <path d="M772 143 C779 129 786 124 792 133" stroke-width="4" opacity="0.5"/>
+    <!-- L -->
+    <path d="M871 126 C863 174 857 224 850 271 C849 281 853 287 866 288 C897 289 929 286 957 279"/>
+    <path d="M867 131 C860 175 855 218 850 257" stroke-width="4" opacity="0.5"/>
+  </g>
+
+  <!-- blue underline -->
+  <path d="M430 322 C533 307 652 304 764 306 C845 307 910 310 961 317"
+        fill="none" stroke="#4f79c6" stroke-width="10" stroke-linecap="round" opacity="0.95"/>
+  <path d="M436 327 C557 312 697 312 825 314 C877 315 918 317 955 321"
+        fill="none" stroke="#4f79c6" stroke-width="3" stroke-linecap="round" opacity="0.45"/>
+</svg>

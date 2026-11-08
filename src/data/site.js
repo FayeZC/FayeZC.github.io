@@ -140,6 +140,26 @@ export const interests = [
 // Newest first.
 export const news = [
   {
+    date: '2026-10',
+    body: {
+      en: 'Passed my Second Exam at the CUNY Graduate Center! Thank you to my committee members, Prof. Ping Ji, Prof. Mohammad Hossein Manshaei, and Prof. Raj Korpan.',
+      zh: '通过了纽约市立大学研究生中心的 Second Exam！感谢我的委员会成员：纪平教授、Mohammad Hossein Manshaei 教授和 Raj Korpan 教授。',
+    },
+  },
+  {
+    date: '2026-10',
+    body: {
+      en: 'OPAL (Open Platform for Adaptive Learning), which I led the design and development of, is now in use in several courses! It helps teachers draft quizzes with AI and gives students a place to practice. Many thanks to our wonderful students and to my advisor for their support.',
+      zh: '我主导设计与开发的产品 OPAL（Open Platform for Adaptive Learning）已在部分课程中投入使用啦！它是一款 AI 辅助教师生成测验、帮助学生练习的学习助手。感谢优秀的同学们和导师的支持！',
+    },
+    // Optional small logo after the text. A vector file, so it scales freely —
+    // the whole-number rule only applies to the pixel sprites.
+    logo: {
+      src: '/logos/opal-logo.svg',
+      alt: { en: 'OPAL logo', zh: 'OPAL 标志' },
+    },
+  },
+  {
     date: '2026-08',
     body: {
       en: 'This site went live. Direct any problems to Zinc, Managing Editor, who brings a full year and a half of professional problem-handling experience.',

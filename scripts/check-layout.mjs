@@ -99,17 +99,20 @@ for (const home of HOMES) {
         const r = img.getBoundingClientRect()
         const scale = r.width / (img.naturalWidth || 1)
         // Photographs are generated at 2x and rendered down, so their scale is
-        // fractional by design. Only pixel art is held to the integer rule.
+        // fractional by design, and vector art has no pixels to keep whole.
+        // Only pixel art is held to the integer rule.
         const isPhoto = img.classList.contains('photo')
+        const isVector = /\.svg($|\?)/.test(img.currentSrc)
         return {
           src: img.currentSrc.split('/').pop(),
           natural: `${img.naturalWidth}x${img.naturalHeight}`,
           rendered: `${Math.round(r.width)}x${Math.round(r.height)}`,
           scale: +scale.toFixed(3),
           isPhoto,
+          isVector,
           // 0.02 of slack for subpixel layout rounding, nothing more.
           integral:
-            isPhoto || (Math.abs(scale - Math.round(scale)) < 0.02 && Math.round(scale) >= 1),
+            isPhoto || isVector || (Math.abs(scale - Math.round(scale)) < 0.02 && Math.round(scale) >= 1),
         }
       })
 
@@ -139,7 +142,7 @@ for (const home of HOMES) {
     }
     for (const img of report.images) {
       const warn = img.integral ? '' : '  <-- NOT an integer scale'
-      const kind = img.isPhoto ? ' [photo]' : ''
+      const kind = img.isPhoto ? ' [photo]' : img.isVector ? ' [vector]' : ''
       console.log(
         `  img ${img.src}${kind}: natural ${img.natural} -> rendered ${img.rendered} (x${img.scale})${warn}`,
       )

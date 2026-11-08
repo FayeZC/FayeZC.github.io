@@ -111,7 +111,10 @@ const latestNews = news.slice(0, 5)
           latestNews.map((item) => (
             <li>
               <time datetime={item.date}>{item.date}</time>
-              <span>{pick(item.body, lang)}</span>
+              <span>
+                {pick(item.body, lang)}
+                {item.logo && <img class="news-logo" src={item.logo.src} alt={pick(item.logo.alt, lang)} />}
+              </span>
             </li>
           ))
         }

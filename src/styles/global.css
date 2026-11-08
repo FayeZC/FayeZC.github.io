@@ -467,6 +467,14 @@ html[lang='zh-CN'] .topbar nav a {
 .news li:last-child {
   border-bottom: 0;
 }
+.news-logo {
+  display: block;
+  height: 2.6rem;
+  width: auto;
+  margin-top: 0.5rem;
+  /* Vector art, not a sprite: let it scale smoothly. */
+  image-rendering: auto;
+}
 .news time {
   font-family: var(--pixel-font);
   font-size: 0.72rem;
