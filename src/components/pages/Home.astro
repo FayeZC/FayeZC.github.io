@@ -8,8 +8,8 @@ import { sprite, photo } from '../../lib/sprite.js'
 
 const { lang } = Astro.props
 const t = ui[lang]
-// The newest five show; the rest wait behind a More toggle. <details> rather
-// than script, so it works with JavaScript off and is announced as expandable.
+// The newest five show; the rest stay hidden until the More button below the
+// panel reveals them.
 const latestNews = news.slice(0, 5)
 const olderNews = news.slice(5)
 ---
@@ -110,23 +110,27 @@ const olderNews = news.slice(5)
   <section>
     <div class="panel">
       <h2>{t.news}</h2>
-      <ul class="news">
+      <ul class="news" id="news-list">
         {latestNews.map((item) => <NewsItem item={item} lang={lang} />)}
+        {olderNews.map((item) => <NewsItem item={item} lang={lang} hidden />)}
       </ul>
-      {
-        olderNews.length > 0 && (
-          <details class="news-more">
-            <summary class="button">
-              <span class="when-closed">{t.moreNews}</span>
-              <span class="when-open">{t.lessNews}</span>
-            </summary>
-            <ul class="news">
-              {olderNews.map((item) => <NewsItem item={item} lang={lang} />)}
-            </ul>
-          </details>
-        )
-      }
     </div>
+    {/* Outside the panel, under its bottom-left corner, like the All posts
+        button under a blog post. */}
+    {
+      olderNews.length > 0 && (
+        <button
+          class="button news-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="news-list"
+          data-more={t.moreNews}
+          data-less={t.lessNews}
+        >
+          {t.moreNews}
+        </button>
+      )
+    }
   </section>
 
   <section>
@@ -155,3 +159,16 @@ const olderNews = news.slice(5)
     </div>
   </section>
 </Base>
+
+<script>
+  for (const button of document.querySelectorAll<HTMLButtonElement>('.news-toggle')) {
+    const list = document.getElementById(button.getAttribute('aria-controls') ?? '')
+    const older = list ? [...list.querySelectorAll<HTMLElement>('li[data-older]')] : []
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') !== 'true'
+      for (const li of older) li.hidden = !open
+      button.setAttribute('aria-expanded', String(open))
+      button.textContent = open ? button.dataset.less ?? '' : button.dataset.more ?? ''
+    })
+  }
+</script>

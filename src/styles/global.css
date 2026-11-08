@@ -467,28 +467,20 @@ html[lang='zh-CN'] .topbar nav a {
 .news li:last-child {
   border-bottom: 0;
 }
-/* The More toggle sits under the list; once open, the older rows continue it
-   with the same dotted rule between them. */
-.news-more {
-  margin-top: 0.8rem;
-}
-.news-more summary {
-  list-style: none;
+/* Sits outside the panel, under its bottom-left corner; the margin clears the
+   panel's drop shadow. */
+.news-toggle {
+  margin-top: 1.2rem;
   cursor: pointer;
 }
-.news-more summary::-webkit-details-marker {
+/* .news li sets display: grid, which would otherwise beat the hidden attribute. */
+.news li[hidden] {
   display: none;
 }
-.news-more .when-open,
-.news-more[open] .when-closed {
-  display: none;
-}
-.news-more[open] .when-open {
-  display: inline;
-}
-.news-more[open] > .news {
-  margin-top: 0.8rem;
-  border-top: 2px dotted var(--stone);
+/* hidden rows must not count as the last row, or the visible last row keeps
+   its dotted rule. */
+.news li:has(+ li[hidden]) {
+  border-bottom: 0;
 }
 .news-logo {
   display: block;

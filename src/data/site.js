@@ -197,8 +197,13 @@ export const news = [
     },
   },
   {
-    date: '2025',
-    body: { en: 'InsightFlow published at ICWL 2025.', zh: 'InsightFlow 发表于 ICWL 2025。' },
+    // ICWL 2025 ran 30 Nov – 3 Dec 2025 in Hong Kong (proceedings: LNCS,
+    // "Learning Technologies and Systems"). Dated by the first day.
+    date: '2025-11',
+    body: {
+      en: 'Presented our paper “InsightFlow: A Generative AI Approach to Streamlining Knowledge and Learning Paths”, published at ICWL 2025 (the 24th International Conference on Web-based Learning), in Hong Kong, November 30 – December 3, 2025.',
+      zh: '在香港举办的 ICWL 2025（第 24 届国际网络学习会议，2025 年 11 月 30 日至 12 月 3 日）上报告了我们发表的论文 “InsightFlow: A Generative AI Approach to Streamlining Knowledge and Learning Paths”。',
+    },
   },
 ]
 

@@ -1,12 +1,12 @@
 ---
-// One row of the News list. Shared by the visible list and the part behind
-// the More toggle, so the two cannot drift apart.
+// One row of the News list. `hidden` marks the older rows that the More button
+// under the panel reveals.
 import { pick } from '../i18n/index.js'
 
-const { item, lang } = Astro.props
+const { item, lang, hidden = false } = Astro.props
 ---
 
-<li>
+<li hidden={hidden} data-older={hidden ? '' : undefined}>
   <time datetime={item.date}>{item.date}</time>
   <span>
     {pick(item.body, lang)}
