@@ -142,8 +142,8 @@ export const news = [
   {
     date: '2026-10',
     body: {
-      en: 'Passed my Second Exam at the CUNY Graduate Center! Thank you to my committee members, Prof. Ping Ji, Prof. Mohammad Hossein Manshaei, and Prof. Raj Korpan.',
-      zh: '通过了纽约市立大学研究生中心的 Second Exam！感谢我的委员会成员：纪平教授、Mohammad Hossein Manshaei 教授和 Raj Korpan 教授。',
+      en: 'Passed my Second Exam at the CUNY Graduate Center! Thank you to all my committee members.',
+      zh: '通过了纽约市立大学研究生中心的 Second Exam！感谢所有委员会成员。',
     },
   },
   {
