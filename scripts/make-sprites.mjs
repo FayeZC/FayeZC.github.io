@@ -169,16 +169,15 @@ for (const size of [512, 128]) {
   await photo(`${SRC}/zinc-zhang.png`, { size, out: 'zinc' })
 }
 
-// Faye and a triceratops, 1080x1440, and the members wall wants squares. Both
-// of them have to survive the crop — the joke is the pair, and she is the only
-// member whose card can make it. The full width is the only square that holds
-// them both, so the only choice left is where it starts vertically: 120 puts
-// her eyes on the upper third and keeps the skull's near horn in frame.
+// Faye's selfie by a window with a cat on the sill, 1280x1707, and the members
+// wall wants squares. The full width is the only square that keeps both of
+// them, so the crop starts at the top: that puts her eyes on the upper third
+// and the cat in the right half of the frame.
 for (const size of [512, 128]) {
-  await photo(`${SRC}/faye-dino.jpg`, {
+  await photo(`${SRC}/faye-cat.jpg`, {
     size,
     out: 'faye-portrait',
-    crop: { left: 0, top: 120, width: 1080, height: 1080 },
+    crop: { left: 0, top: 0, width: 1280, height: 1280 },
   })
 }
 

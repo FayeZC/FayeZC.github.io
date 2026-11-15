@@ -212,13 +212,11 @@ export const members = [
     name: { en: 'Faye', zh: 'Faye' },
     role: { en: 'Ph.D. student · runs this place', zh: '博士生 · 站长' },
     image: { photo: 'faye-portrait-512' },
-    // Who it is and who is next to her. A screen reader needs the photograph
-    // identified, not Faye described — but the triceratops is the point of this
-    // one, and a reader who cannot see it would otherwise miss the joke the
-    // whole site is built on.
+    // Who it is and who is next to her: a screen reader needs the photograph
+    // identified, not Faye described.
     alt: {
-      en: 'Faye next to a triceratops skull at the museum',
-      zh: 'Faye 和博物馆里的一具三角龙头骨',
+      en: 'Faye taking a selfie by a window, with a cream-and-white cat on the sill',
+      zh: 'Faye 在窗边自拍，窗台上坐着一只奶油白色的猫',
     },
     note: {
       en: 'Publishes as Chi Zhang. Aspires to become a triceratops and spend her days eating grass. Works full time in service of the other two members.',
