@@ -1,78 +1,78 @@
 {
   "faye-48": {
-    "src": "/sprites/faye-48.png",
+    "src": "/sprites/faye-48.png?v=24b711e5",
     "width": 48,
     "height": 45,
     "pixel": true
   },
   "faye-96": {
-    "src": "/sprites/faye-96.png",
+    "src": "/sprites/faye-96.png?v=39dbd563",
     "width": 96,
     "height": 90,
     "pixel": true
   },
   "zinc-512": {
-    "src": "/photos/zinc-512.jpg",
+    "src": "/photos/zinc-512.jpg?v=4b53702a",
     "width": 512,
     "height": 512,
     "pixel": false
   },
   "zinc-128": {
-    "src": "/photos/zinc-128.jpg",
+    "src": "/photos/zinc-128.jpg?v=d20a0edc",
     "width": 128,
     "height": 128,
     "pixel": false
   },
   "faye-portrait-512": {
-    "src": "/photos/faye-portrait-512.jpg",
+    "src": "/photos/faye-portrait-512.jpg?v=b4613478",
     "width": 512,
     "height": 512,
     "pixel": false
   },
   "faye-portrait-128": {
-    "src": "/photos/faye-portrait-128.jpg",
+    "src": "/photos/faye-portrait-128.jpg?v=64135db9",
     "width": 128,
     "height": 128,
     "pixel": false
   },
   "byte-512": {
-    "src": "/photos/byte-512.jpg",
+    "src": "/photos/byte-512.jpg?v=51fbc6b7",
     "width": 512,
     "height": 512,
     "pixel": false
   },
   "byte-128": {
-    "src": "/photos/byte-128.jpg",
+    "src": "/photos/byte-128.jpg?v=04421362",
     "width": 128,
     "height": 128,
     "pixel": false
   },
   "trike-45": {
-    "src": "/sprites/trike-45.png",
+    "src": "/sprites/trike-45.png?v=5c8b31a0",
     "width": 45,
     "height": 26,
     "pixel": true
   },
   "nemo-64": {
-    "src": "/sprites/nemo-64.png",
+    "src": "/sprites/nemo-64.png?v=81ba65fe",
     "width": 64,
     "height": 46,
     "pixel": true
   },
   "bubble-9": {
-    "src": "/sprites/bubble-9.png",
+    "src": "/sprites/bubble-9.png?v=4f05d908",
     "width": 9,
     "height": 9,
     "pixel": true
   },
   "bubble-6": {
-    "src": "/sprites/bubble-6.png",
+    "src": "/sprites/bubble-6.png?v=7d10915c",
     "width": 6,
     "height": 6,
     "pixel": true
   },
   "bubble-4": {
-    "src": "/sprites/bubble-4.png",
+    "src": "/sprites/bubble-4.png?v=24332a8e",
     "width": 4,
     "height": 4,
     "pixel": true

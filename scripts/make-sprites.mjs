@@ -1,7 +1,8 @@
 // Build the site's imagery. Faye's avatar becomes real pixel art — background
 // keyed out, nearest-neighbour downsample. Zinc stays a photograph.
 import sharp from 'sharp'
-import { mkdir, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
 import { TRIKE, TRIKE_INK } from './trike.mjs'
 import { BUBBLE_INK, BUBBLE_LG, BUBBLE_MD, BUBBLE_SM } from './nemo.mjs'
 
@@ -207,6 +208,15 @@ await pixelate(fish, { size: 64, out: 'nemo', colours: 16 })
 // they rise on three different clocks and CSS has to move them independently.
 for (const rows of [BUBBLE_LG, BUBBLE_MD, BUBBLE_SM]) {
   await drawPixels(rows, { out: 'bubble', ink: BUBBLE_INK })
+}
+
+// Every src carries a short hash of the file's bytes. GitHub Pages lets
+// browsers cache these files for ten minutes, and a replaced photo keeps its
+// name, so without this a visitor keeps seeing the old one after a deploy.
+for (const entry of Object.values(manifest)) {
+  const bytes = await readFile(`public${entry.src}`)
+  const hash = createHash('sha256').update(bytes).digest('hex').slice(0, 8)
+  entry.src = `${entry.src}?v=${hash}`
 }
 
 await writeFile(MANIFEST, JSON.stringify(manifest, null, 2) + '\n')
