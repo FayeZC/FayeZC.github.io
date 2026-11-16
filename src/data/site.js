@@ -140,6 +140,15 @@ export const interests = [
 // Newest first.
 export const news = [
   {
+    date: '2026-11',
+    body: {
+      en: 'Released Hidee, a local privacy checkpoint and evidence log for AI agents. It runs Claude Code, Gemini CLI, or Codex CLI on your own computer, lets you decide what leaves before the agent sends it, and keeps a hash-chained record of every session.',
+      zh: '发布了 Hidee：一个面向 AI agent 的本地隐私检查点与证据日志。它在你自己的电脑上运行 Claude Code、Gemini CLI 或 Codex CLI，agent 向外发送内容之前由你决定放行什么，并为每次会话保留一份 hash-chained 的证据记录。',
+    },
+    // Optional link after the text, shown as its own short line.
+    link: { href: 'https://hidee.net', label: 'hidee.net' },
+  },
+  {
     date: '2026-10',
     body: {
       en: 'Passed my Second Exam at the CUNY Graduate Center! Thank you to all my committee members.',

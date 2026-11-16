@@ -67,14 +67,6 @@ export const publications = [
     links: { DOI: 'https://doi.org/10.1007/978-981-92-0042-9_18' },
   },
   {
-    year: 2024,
-    authors: ['Baravkar, S.', 'Zhang, C.', 'Hassan, F.', 'Cheng, L.', 'Song, Z.'],
-    title: 'Decoding and Answering Developers’ Questions About Web Services Managed by Marketplaces',
-    venue: 'IEEE International Conference on Software Services Engineering (SSE 2024), 194–203',
-    short: 'SSE',
-    links: {},
-  },
-  {
     year: 2023,
     authors: ['Gu, J.', 'Du, Y.', 'Zhang, C.', 'et al.'],
     title: 'Music Intervention in Human Life, Work, and Disease: A Survey',

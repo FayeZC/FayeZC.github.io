@@ -207,8 +207,8 @@ export const experience = [
     role: { en: 'Web Services Research', zh: 'Web 服务研究' },
     bullets: [
       {
-        en: 'Analyzed developer questions about marketplace-managed web services, classifying question topics and answer patterns to inform API documentation and support; published at IEEE SSE 2024.',
-        zh: '分析开发者关于平台托管 Web 服务的提问，对问题主题与回答模式进行分类，为改进 API 文档与支持提供依据；发表于 IEEE SSE 2024。',
+        en: 'Analyzed developer questions about marketplace-managed web services, classifying question topics and answer patterns to inform API documentation and support.',
+        zh: '分析开发者关于平台托管 Web 服务的提问，对问题主题与回答模式进行分类，为改进 API 文档与支持提供依据。',
       },
     ],
   },

@@ -10,6 +10,7 @@ const { item, lang, hidden = false } = Astro.props
   <time datetime={item.date}>{item.date}</time>
   <span>
     {pick(item.body, lang)}
+    {item.link && <a class="news-link" href={item.link.href}>{item.link.label}</a>}
     {item.logo && <img class="news-logo" src={item.logo.src} alt={pick(item.logo.alt, lang)} />}
   </span>
 </li>

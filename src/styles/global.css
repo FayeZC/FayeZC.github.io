@@ -510,6 +510,11 @@ html[lang='zh-CN'] .topbar nav a {
 .news li:has(+ li[hidden]) {
   border-bottom: 0;
 }
+.news-link {
+  display: block;
+  margin-top: 0.3rem;
+  width: fit-content;
+}
 .news-logo {
   display: block;
   height: 2.6rem;
