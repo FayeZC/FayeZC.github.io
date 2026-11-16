@@ -142,8 +142,8 @@ export const news = [
   {
     date: '2026-11',
     body: {
-      en: 'Released Hidee, a local privacy checkpoint for AI agents. It shows users what an agent is about to send to external services, lets them decide what may be shared, and keeps a record of each session on their own computer.',
-      zh: '发布 Hidee：一款面向 AI agent 的本地隐私检查工具。它向用户展示 agent 即将发送到外部服务的内容，由用户决定哪些信息可以发出，并在用户本地保留每次会话的记录。',
+      en: 'Hidee is now online! We believe that people who use AI agents have the right to see where their data goes. Hidee, a local privacy checkpoint for AI agents, shows users what an agent is about to send to external services, lets them decide what may be shared, and keeps a record of each session on their own computer.',
+      zh: 'Hidee 正式上线！我们相信，人们在使用 AI agent 时，有权看到自己的数据流向何处。Hidee 是一款面向 AI agent 的本地隐私检查工具，它向用户展示 agent 即将发送到外部服务的内容，由用户决定哪些信息可以发出，并在用户本地保留每次会话的记录。',
     },
     // Optional link after the text, shown as its own short line.
     link: { href: 'https://hidee.net', label: 'hidee.net' },
