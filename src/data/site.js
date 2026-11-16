@@ -142,8 +142,8 @@ export const news = [
   {
     date: '2026-11',
     body: {
-      en: 'Released Hidee, a local privacy checkpoint and evidence log for AI agents. It runs Claude Code, Gemini CLI, or Codex CLI on your own computer, lets you decide what leaves before the agent sends it, and keeps a hash-chained record of every session.',
-      zh: '发布了 Hidee：一个面向 AI agent 的本地隐私检查点与证据日志。它在你自己的电脑上运行 Claude Code、Gemini CLI 或 Codex CLI，agent 向外发送内容之前由你决定放行什么，并为每次会话保留一份 hash-chained 的证据记录。',
+      en: 'Hidee is out! It shows you what your AI agent is about to send out, lets you decide what is allowed to leave, and keeps a record of every session, all on your own computer.',
+      zh: 'Hidee 发布啦！它让你看清 AI agent 准备向外发送什么，由你决定哪些内容可以发出去，并为每次会话留下记录，一切都在你自己的电脑上完成。',
     },
     // Optional link after the text, shown as its own short line.
     link: { href: 'https://hidee.net', label: 'hidee.net' },
@@ -233,14 +233,14 @@ export const members = [
     },
   },
   {
-    name: { en: 'Zinc Zhang', zh: 'Zinc Zhang' },
+    name: { en: 'Zinc Z', zh: 'Zinc Z' },
     role: { en: 'Managing Editor', zh: '责任编辑' },
     // Shown as the actual photograph. Downsampling a studio portrait to a
     // palette produced a noisy mess next to the flat-shaded dino.
     image: { photo: 'zinc-512' },
     alt: {
-      en: 'Zinc Zhang, a charcoal tuxedo cat with a white bib and gold eyes',
-      zh: 'Zinc Zhang，一只炭灰色燕尾服猫，白胸兜，金色眼睛',
+      en: 'Zinc Z, a charcoal tuxedo cat with a white bib and gold eyes',
+      zh: 'Zinc Z，一只炭灰色燕尾服猫，白胸兜，金色眼睛',
     },
     note: {
       en: 'White bib, gold eyes, walks across the keyboard at load-bearing moments and signs off on the result. Consulting rate: 4 shrimp per hour. Takes feedback at random.',
@@ -248,12 +248,12 @@ export const members = [
     },
   },
   {
-    name: { en: 'Byte Zhang', zh: 'Byte Zhang' },
+    name: { en: 'Byte Z', zh: 'Byte Z' },
     role: { en: 'Out sick', zh: '病假中' },
     image: { photo: 'byte-512' },
     alt: {
-      en: 'Byte Zhang, a cream tabby cat wearing a recovery cone',
-      zh: 'Byte Zhang，一只戴着伊丽莎白圈的奶油色虎斑猫',
+      en: 'Byte Z, a cream tabby cat wearing a recovery cone',
+      zh: 'Byte Z，一只戴着伊丽莎白圈的奶油色虎斑猫',
     },
     note: {
       en: 'Injured toe bean, on medical leave, not handling issues at present. Currently wearing the cone of shame and taking it personally.',
