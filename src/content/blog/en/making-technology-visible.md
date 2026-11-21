@@ -1,5 +1,5 @@
 ---
-title: Making invisible technology understandable
+title: Making “invisible” technology understandable
 date: 2026-11-21
 summary: "Conversations with friends and family led me to a question behind Hidee: how can we make technical processes visible enough for people to understand them and decide when to intervene?"
 tags: ['technology visualization', 'AI', 'privacy', 'Hidee']
