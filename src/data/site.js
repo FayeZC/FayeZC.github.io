@@ -228,8 +228,8 @@ export const members = [
       zh: 'Faye 在窗边自拍，窗台上坐着一只奶油白色的猫',
     },
     note: {
-      en: 'Publishes as Chi Zhang. Aspires to become a triceratops and spend her days eating grass. Works full time in service of the other two members.',
-      zh: '论文上署名 Chi Zhang。志向是成为一只三角龙，每天吃草。全职为后面两位成员服务。',
+      en: 'FAYE Z CHI. Works full time in service of the other two members.',
+      zh: 'FAYE Z CHI。全职为后面两位成员服务。',
     },
   },
   {
