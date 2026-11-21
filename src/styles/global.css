@@ -13,8 +13,8 @@
 /* Near-white surfaces keep the pixel-art theme light, with the mascot's
    bright green providing the strongest color. */
 :root {
-  --bone: oklch(97.5% 0.004 100);
-  --paper: oklch(99.2% 0.002 100);
+  --bone: oklch(97.2% 0.009 95);
+  --paper: oklch(98.9% 0.006 95);
   --ash: #1c1b1a;
   --fern: #4a6b3d;
   --fern-light: #6e8c5a;
@@ -155,7 +155,7 @@ section {
   will-change: box-shadow;
 }
 html.nav-scrolled .topbar {
-  background: oklch(99.2% 0.002 100 / 0.96);
+  background: oklch(98.9% 0.006 95 / 0.96);
   box-shadow: 0 3px 0 var(--ash);
   animation: topbar-breathe 3400ms steps(2, end) infinite;
 }
