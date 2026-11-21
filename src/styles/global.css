@@ -10,11 +10,11 @@
   font-display: swap;
 }
 
-/* Cretaceous earth palette. Low saturation everywhere so the mascot's bright
-   green is the only high-chroma thing on the page. */
+/* Near-white surfaces keep the pixel-art theme light, with the mascot's
+   bright green providing the strongest color. */
 :root {
-  --bone: #ede6d6;
-  --paper: #f7f2e6;
+  --bone: oklch(97.5% 0.004 100);
+  --paper: oklch(99.2% 0.002 100);
   --ash: #1c1b1a;
   --fern: #4a6b3d;
   --fern-light: #6e8c5a;
@@ -53,7 +53,7 @@ body {
   background: var(--bone);
   /* Dither texture. Keep it barely-there: at full --stone it reads as noise and
      swallows any muted text sitting directly on the page background. */
-  background-image: radial-gradient(rgba(138, 133, 120, 0.22) 1px, transparent 1px);
+  background-image: radial-gradient(oklch(58% 0.008 100 / 0.12) 1px, transparent 1px);
   background-size: 9px 9px;
   color: var(--ash);
   font-family: var(--body-font);
@@ -155,7 +155,7 @@ section {
   will-change: box-shadow;
 }
 html.nav-scrolled .topbar {
-  background: rgba(247, 242, 230, 0.96);
+  background: oklch(99.2% 0.002 100 / 0.96);
   box-shadow: 0 3px 0 var(--ash);
   animation: topbar-breathe 3400ms steps(2, end) infinite;
 }
