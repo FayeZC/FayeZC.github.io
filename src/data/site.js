@@ -183,13 +183,6 @@ export const news = [
     },
   },
   {
-    date: '2026-07',
-    body: {
-      en: 'Served as a reviewer for the EMNLP 2026 Industry Track.',
-      zh: '担任 EMNLP 2026 Industry Track 审稿人。',
-    },
-  },
-  {
     // Author notification was 13 May 2026; the workshop itself is 26 May in San
     // Jose. Dated by the acceptance, which is what the entry is about.
     date: '2026-05',
