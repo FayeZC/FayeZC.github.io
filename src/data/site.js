@@ -192,6 +192,15 @@ export const news = [
     },
   },
   {
+    // AASF and the AI NextGen Foundation held the inaugural AIX Summit on
+    // 17 April 2026 at Convene Brookfield Place, New York.
+    date: '2026-04',
+    body: {
+      en: 'Presented a poster on LLM agents for cyber defense at the inaugural AASF AIX Summit in New York.',
+      zh: '在纽约举办的首届 AASF AIX Summit 上展示了关于网络防御大模型 agent 的海报。',
+    },
+  },
+  {
     date: '2026-01',
     body: {
       en: 'Teaching Assistant for CSCI 49392 Advanced Operating Systems at Hunter College, CUNY, delivering lectures. Happy to work with all the amazing students!',

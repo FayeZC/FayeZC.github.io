@@ -65,6 +65,28 @@ export const experience = [
   },
   {
     title: {
+      en: 'Hidee: A Local Privacy Checkpoint for AI Agents',
+      zh: 'Hidee：面向 AI Agent 的本地隐私检查工具',
+    },
+    when: { en: 'Nov 2026 – Present', zh: '2026.11 – 至今' },
+    where: { en: 'New York, NY', zh: '美国纽约' },
+    role: {
+      en: 'Supervisor: Prof. Ping Ji · Open-source tool (hidee.net)',
+      zh: '导师：纪平教授 · 开源工具（hidee.net）',
+    },
+    bullets: [
+      {
+        en: 'Designed and built Hidee, a local privacy checkpoint that shows people what an AI agent is about to send to external services before the data leaves their computer.',
+        zh: '设计并开发 Hidee：一款本地隐私检查工具，在数据离开用户电脑之前，向用户展示 AI agent 即将发送到外部服务的内容。',
+      },
+      {
+        en: 'Users decide what may be shared, and Hidee keeps a record of each session on their own machine; released as open source with downloads at hidee.net.',
+        zh: '由用户决定哪些信息可以发出，并在用户本地保留每次会话的记录；已开源，可在 hidee.net 下载。',
+      },
+    ],
+  },
+  {
+    title: {
       en: 'Usable Security for Small Businesses',
       zh: '小型企业的可用安全',
     },
