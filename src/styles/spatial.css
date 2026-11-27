@@ -923,7 +923,7 @@ button {
 .field-research h2 { font-size:clamp(24px,2.4vw,34px); }
 .field-research p:not(.index-label) { max-width:340px; }
 .field-intro h1 { font-size:clamp(28px,3.1vw,43px); }
-.disc { left:34%; top:10%; width:210px; filter:contrast(1.2); }
+.disc { left:31%; top:13%; width:210px; filter:contrast(1.2); }
 .crt { left:65%; top:7%; width:145px; opacity:.8; filter:blur(.2px) contrast(1.2); }
 .network { left:53%; right:auto; top:39%; width:95px; opacity:1; }
 .ring { left:-125px; top:auto; bottom:55px; width:350px; filter:contrast(1.45); }
@@ -941,7 +941,7 @@ button {
 .field-contents a[aria-current="location"] { color:var(--blue); }
 .field-bottom { bottom:20px; }
 @media(min-width:1600px){.field-contents {width:260px}.field-contents a {padding:8px 0;font-size:17px}}
-@media(min-width:651px) and (max-width:1050px){.field-contents {width:185px;right:4%;top:22%}.field-contents a{font-size:14px;gap:12px}.field-intro{left:5%;max-width:340px}.field-intro h1{font-size:32px}.field-research{left:39%;width:36%;top:68%}.disc{width:150px;left:44%;top:35%}.network{left:64%;width:75px;top:22%}.crt{left:57%;width:125px}.pointer{left:47%;width:45px}.ring{left:-120px;width:290px}}
+@media(min-width:651px) and (max-width:1050px){.field-contents {width:185px;right:4%;top:22%}.field-contents a{font-size:14px;gap:12px}.field-intro{left:5%;max-width:340px}.field-intro h1{font-size:32px}.field-research{left:39%;width:36%;top:68%}.disc{width:150px;left:41%;top:38%}.network{left:64%;width:75px;top:22%}.crt{left:57%;width:125px}.pointer{left:47%;width:45px}.ring{left:-120px;width:290px}}
 @media(max-width:650px){
  .void-field { min-height:1120px; }
  .field-coordinate { top:25px; }
@@ -1039,7 +1039,7 @@ button {
 @media(prefers-reduced-motion:reduce),(pointer:coarse){.network .satellite-orbit{animation:none;transform:translate(40px,18px);z-index:3;}}
 
 /* Individual motion signatures, with no shared vertical bobbing. */
-.network {width:157px;left:51%;top:36%;}
+.network {width:157px;left:calc(51% + 30px);top:calc(36% + 20px);}
 .crt {opacity:1;filter:none;}
 .disc > img {animation:disc-attitude 28s ease-in-out infinite;}
 .crt > img {animation:crt-attitude 32s ease-in-out infinite;}
@@ -1051,7 +1051,7 @@ button {
 @keyframes atom-attitude {0%,100%{transform:perspective(600px) rotateY(-16deg) rotateX(7deg) rotateZ(-5deg)}50%{transform:perspective(600px) rotateY(18deg) rotateX(-8deg) rotateZ(6deg)}}
 @keyframes ring-turn {from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .motion-paused .artifact > img,.motion-paused .network .satellite-orbit {animation-play-state:paused;}
-@media(min-width:651px) and (max-width:1050px){.network{width:124px;left:53%;top:26%;}}
+@media(min-width:651px) and (max-width:1050px){.network{width:124px;left:calc(53% + 30px);top:calc(26% + 20px);}}
 @media(max-width:650px){.network{width:107px;left:10%;top:590px;}}
 @media(prefers-reduced-motion:reduce),(pointer:coarse){.artifact > img,.network .satellite-orbit{animation:none!important;}}
 
@@ -1082,9 +1082,9 @@ button {
 }
 .archive .biography-node .node-content>p,.archive .education-list p:not(.index-label) {font-size:20px;}
 
-/* Only the CRT moves: retain the original placement of the other objects. */
-.crt {left:65%;top:max(108px,12%);}
-@media(min-width:651px) and (max-width:1050px){.crt{left:57%;top:108px;width:125px;}}
+/* Offset the infinity loop toward the right, keeping its floating height. */
+.crt {left:73%;top:max(108px,12%);width:133px;}
+@media(min-width:651px) and (max-width:1050px){.crt{left:65%;top:108px;width:115px;}}
 @media(max-width:650px){.crt{left:auto;right:24px;top:102px;width:76px;}}
 @media(min-width:1001px) and (max-width:1100px){.about-fish{right:-30px;}}
 

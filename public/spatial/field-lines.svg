@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 850" fill="none">
   <!-- Independent registration marks: no shared axis or connecting trajectory. -->
   <g stroke="#8b929a" stroke-width=".8">
-    <path d="M469 108h34m-17-17v34"/>
+    <path d="M439 108h34m-17-17v34"/>
     <path d="M1040 311h20m-10-10v20"/>
     <path d="M281 625h40m-20-20v40"/>
   </g>
