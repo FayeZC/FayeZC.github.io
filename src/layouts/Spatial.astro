@@ -1,6 +1,7 @@
 ---
 import '../styles/spatial.css'
 import { profile } from '../data/site.js'
+import { sprite } from '../lib/sprite.js'
 import { ui, pick, localizePath, htmlLang } from '../i18n/index.js'
 const { lang = 'en', path = '/', title, description } = Astro.props
 const home = path === '/'
@@ -26,6 +27,6 @@ const t = ui[lang]
 <nav aria-label={lang === 'en' ? 'Main navigation' : '主导航'}><a href={localizePath('/',lang)+'#biography'}>{t.about}</a><a href={localizePath('/publications', lang)} aria-current={path.startsWith('/publications') ? 'page' : undefined}>{t.nav.publications}</a><a href={localizePath('/blog', lang)} aria-current={path.startsWith('/blog') ? 'page' : undefined}>{t.nav.blog}</a><a href={localizePath('/cv', lang)} aria-current={path === '/cv' ? 'page' : undefined}>CV</a></nav>
 </header>
 <main id="content" class:list={{"document-content": !home}}><slot /></main>
-<footer class="void-footer"><span>© {new Date().getFullYear()} {name}</span><span>{t.footer}</span><a href="#content">{lang === 'en' ? 'Back to top ↑' : '返回顶部 ↑'}</a></footer>
+<footer class="void-footer"><span>© {new Date().getFullYear()} {name}</span><span class="footer-note">{t.footer}<img {...sprite('trike-45')} class="footer-trike" alt="" aria-hidden="true" /></span><a href="#content">{lang === 'en' ? 'Back to top ↑' : '返回顶部 ↑'}</a></footer>
 </body>
 </html>

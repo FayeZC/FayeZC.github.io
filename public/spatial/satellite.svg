@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90" fill="none">
+<defs>
+ <linearGradient id="chrome" x1="30" y1="15" x2="80" y2="78" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset=".3" stop-color="#e8edf0"/><stop offset=".46" stop-color="#8b949d"/><stop offset=".53" stop-color="#fff"/><stop offset=".75" stop-color="#c5ccd2"/><stop offset="1" stop-color="#78838d"/></linearGradient>
+ <linearGradient id="rim" x1="15" y1="38" x2="99" y2="63" gradientUnits="userSpaceOnUse"><stop stop-color="#949ea7"/><stop offset=".27" stop-color="#fff"/><stop offset=".48" stop-color="#dce2e7"/><stop offset=".68" stop-color="#77838e"/><stop offset=".82" stop-color="#fff"/><stop offset="1" stop-color="#b4bec6"/></linearGradient>
+</defs>
+<!-- A minimal chrome orbital form: polished capsule and an asymmetric rim. -->
+<path d="M20 56C37 40 79 28 101 37C111 41 98 54 74 62C49 70 18 69 16 62C15 60 17 58 20 56Z" fill="url(#rim)" stroke="#c3cbd1" stroke-width=".7"/>
+<path d="M41 49C40 31 47 19 59 19C71 19 81 34 82 48C77 57 49 62 41 49Z" fill="url(#chrome)" stroke="#cbd2d8" stroke-width=".7"/>
+<path d="M19 59C35 65 75 58 101 41" stroke="#fff" stroke-width="1.7"/>
+<path d="M47 38C48 28 52 24 57 23" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

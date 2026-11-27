@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 240" fill="none">
+<defs>
+<linearGradient id="body" x1="53" y1="38" x2="218" y2="183" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset=".42" stop-color="#edf0f2"/><stop offset=".72" stop-color="#bac2c8"/><stop offset="1" stop-color="#e0e5e8"/></linearGradient>
+<linearGradient id="side"><stop stop-color="#aab3bb"/><stop offset=".5" stop-color="#e2e7eb"/><stop offset="1" stop-color="#c5cdd3"/></linearGradient>
+<linearGradient id="screen" x1="80" y1="69" x2="143" y2="136" gradientUnits="userSpaceOnUse"><stop stop-color="#ced9df"/><stop offset=".45" stop-color="#a8b9c5"/><stop offset="1" stop-color="#788d9e"/></linearGradient>
+</defs>
+<path d="M110 174L145 181L149 204L109 203Z" fill="url(#side)"/>
+<path d="M89 202Q122 190 164 203L175 215Q133 227 82 214Z" fill="url(#body)" stroke="#c9d0d5"/>
+<!-- Deep rounded rear housing and generous pearl-white bezel. -->
+<path d="M149 38Q159 31 181 39L215 52Q227 57 225 79L218 156Q216 173 199 175L158 184Z" fill="url(#side)" stroke="#c2cad0"/>
+<path d="M48 51Q48 33 69 36L157 47Q177 50 177 70L172 164Q171 185 150 183L64 172Q45 170 45 148Z" fill="url(#body)" stroke="#c9d0d5"/>
+<path d="M61 64Q62 51 76 54L147 63Q161 65 160 80L157 137Q157 151 142 150L74 142Q59 140 60 126Z" fill="#eef2f4" stroke="#bac5cd" stroke-width="2"/>
+<path d="M70 73Q70 65 81 66L140 74Q150 75 149 86L147 127Q147 138 136 137L81 130Q69 129 69 119Z" fill="url(#screen)"/>
+<path d="M76 76Q105 69 141 82L139 94Q105 80 76 88Z" fill="white" opacity=".22"/>
+<path d="M79 104L86 110L79 114M92 116L107 118" stroke="#ecf4f8" stroke-width="1.7"/>
+<path d="M185 71L210 78M184 78L209 85M184 85L208 92M183 92L208 99" stroke="#9ba7b0" stroke-width="1.5"/>
+<rect x="140" y="158" width="11" height="4" rx="2" fill="#94a4af" transform="rotate(7 140 158)"/>
+<path d="M57 49Q61 43 71 45L153 55" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</svg>

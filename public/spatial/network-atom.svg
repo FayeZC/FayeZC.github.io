@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 240" fill="none">
+<defs>
+ <radialGradient id="silver" cx=".28" cy=".2" r=".85"><stop stop-color="#fff"/><stop offset=".25" stop-color="#f9fafb"/><stop offset=".43" stop-color="#d9e0e5"/><stop offset=".61" stop-color="#8b98a3"/><stop offset=".73" stop-color="#5c6a76"/><stop offset=".84" stop-color="#d5dfe6"/><stop offset="1" stop-color="#a3b1bd"/></radialGradient>
+ <linearGradient id="wire" x1="30" y1="180" x2="220" y2="60" gradientUnits="userSpaceOnUse"><stop stop-color="#aab6bf"/><stop offset=".25" stop-color="#657783"/><stop offset=".5" stop-color="#e9eef1"/><stop offset=".78" stop-color="#8798a5"/><stop offset="1" stop-color="#c9d2d9"/></linearGradient>
+</defs>
+<!-- Interrupted rear orbit: no enclosing cage or complete geometric symmetry. -->
+<path d="M32 164C22 142 74 97 127 73M146 65C184 51 212 52 220 65" stroke="#aab7c1" stroke-width=".85"/>
+<!-- Seven connections across five attached spheres. -->
+<g stroke="#91a1ad" stroke-width=".7">
+ <path d="M70 62L171 48M70 62L120 123M171 48L203 139M171 48L120 123M120 123L203 139M120 123L153 192M203 139L153 192"/>
+</g>
+<g fill="url(#silver)">
+ <circle cx="171" cy="48" r="6"/>
+ <circle cx="70" cy="62" r="8"/>
+ <circle cx="120" cy="123" r="18.4"/>
+ <circle cx="203" cy="139" r="9"/>
+ <circle cx="153" cy="192" r="11"/>
+ <!-- An independent near-field sphere, deliberately without a connection. -->
+ <circle cx="43" cy="176" r="6.5"/>
+</g>
+<path d="M46 180C80 197 165 154 207 107M215 95C222 85 225 77 222 71" stroke="url(#wire)" stroke-width="1.25"/>
+<path d="M111 113Q115 107 122 108" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
+</svg>

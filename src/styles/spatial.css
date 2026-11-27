@@ -127,7 +127,7 @@ button {
 .void-header nav {
   display: flex;
   gap: 30px;
-  align-items: start;
+  align-items: baseline;
   font-size: 12px;
   line-height: 1.35;
   text-transform: uppercase;
@@ -135,10 +135,6 @@ button {
 .void-header nav a {
   text-decoration: none;
   max-width: 140px;
-}
-.void-header nav a:last-child {
-  font-size: 15px;
-  margin-left: 40px;
 }
 .void-field {
   height: calc(100svh - 100px);
@@ -669,9 +665,6 @@ button {
   .void-header nav {
     gap: 20px;
   }
-  .void-header nav a:last-child {
-    margin-left: 10px;
-  }
   .field-intro {
     left: 5%;
     max-width: 320px;
@@ -729,10 +722,6 @@ button {
     justify-content: space-between;
     gap: 14px;
     font-size: 10px;
-  }
-  .void-header nav a:last-child {
-    font-size: 10px;
-    margin: 0;
   }
   .void-header nav br {
     display: none;
@@ -920,9 +909,6 @@ button {
 }
 
 /* Optical annotations are decorative; the document remains a normal reading flow. */
-.void-header nav a:last-child span {
-  display: block;
-}
 .artifact {
   pointer-events: auto;
 }
@@ -933,9 +919,6 @@ button {
   animation-play-state: paused;
 }
 @media (max-width: 650px) {
-  .void-header nav a:last-child span {
-    display: inline;
-  }
   .network {
     left: 0;
     width: 65px;
@@ -1045,3 +1028,41 @@ button {
 .about-fish {position:absolute;right:-62px;top:auto;bottom:100px;margin:0;transform:rotate(10deg);}
 .about-fish img {width:58px;}
 @media(max-width:1000px){.about-fish{position:relative;right:auto;top:auto;bottom:auto;float:right;margin:0 0 8px 18px;}.about-fish img{width:48px;}.biography-node .node-label{min-height:0;}}
+
+.footer-note {display:flex;align-items:center;gap:16px;}
+.footer-trike {width:45px;height:auto;flex-shrink:0;image-rendering:pixelated;}
+
+/* A tilted orbit projects depth through scale, occlusion and changing focus. */
+.network {isolation:isolate;}
+.network > img {position:relative;z-index:2;}
+.network .satellite-orbit {display:block;position:absolute;inset:auto;left:50%;top:50%;width:44px;height:33px;margin:-16px 0 0 -22px;pointer-events:none;animation:satellite-depth 18s linear infinite;transform-origin:center;}
+.satellite-orbit > img {display:block;width:100%;max-width:none;height:auto;}
+@keyframes satellite-depth {
+  0% {transform:translate(-69px,16px) scale(1);z-index:3;opacity:1;filter:blur(0);}
+  25% {transform:translate(8px,39px) scale(1.32);z-index:3;opacity:1;filter:blur(0);}
+  49% {z-index:3;}
+  50% {transform:translate(69px,-16px) scale(.92);z-index:1;opacity:.85;filter:blur(.1px);}
+  75% {transform:translate(-8px,-39px) scale(.62);z-index:1;opacity:.55;filter:blur(.5px);}
+  99% {z-index:1;}
+  100% {transform:translate(-69px,16px) scale(1);z-index:3;opacity:1;filter:blur(0);}
+}
+.motion-paused .network .satellite-orbit {animation-play-state:paused;}
+@media(max-width:650px){.network .satellite-orbit{width:34px;height:26px;margin:-13px 0 0 -17px;}}
+@media(prefers-reduced-motion:reduce),(pointer:coarse){.network .satellite-orbit{animation:none;transform:translate(40px,18px);z-index:3;}}
+
+/* Individual motion signatures, with no shared vertical bobbing. */
+.network {width:157px;left:51%;top:36%;}
+.crt {opacity:1;filter:none;}
+.disc > img {animation:disc-attitude 28s ease-in-out infinite;}
+.crt > img {animation:crt-attitude 32s ease-in-out infinite;}
+.network > img {animation:atom-attitude 40s ease-in-out infinite;}
+.ring > img {animation:ring-turn 40s linear infinite;}
+.network .satellite-orbit {animation-duration:32s;}
+@keyframes disc-attitude {0%,100%{transform:perspective(600px) rotateX(0deg) rotateZ(-5deg)}50%{transform:perspective(600px) rotateX(18deg) rotateZ(5deg)}}
+@keyframes crt-attitude {0%,100%{transform:perspective(600px) rotateY(-9deg)}50%{transform:perspective(600px) rotateY(9deg)}}
+@keyframes atom-attitude {0%,100%{transform:perspective(600px) rotateY(-16deg) rotateX(7deg) rotateZ(-5deg)}50%{transform:perspective(600px) rotateY(18deg) rotateX(-8deg) rotateZ(6deg)}}
+@keyframes ring-turn {from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.motion-paused .artifact > img,.motion-paused .network .satellite-orbit {animation-play-state:paused;}
+@media(min-width:651px) and (max-width:1050px){.network{width:124px;left:53%;top:26%;}}
+@media(max-width:650px){.network{width:107px;left:10%;top:590px;}}
+@media(prefers-reduced-motion:reduce),(pointer:coarse){.artifact > img,.network .satellite-orbit{animation:none!important;}}
