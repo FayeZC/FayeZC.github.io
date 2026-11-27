@@ -1120,3 +1120,5 @@ button {
 .motion-paused .publication-cube {animation-play-state:paused;}
 @media(min-width:651px) and (max-width:1000px){.publication-cube{width:220px;margin-left:-18px;}}
 @media(prefers-reduced-motion:reduce),(pointer:coarse){.publication-cube{animation:none;}}
+
+.field-bottom {justify-content:flex-end;}
