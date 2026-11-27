@@ -1124,3 +1124,53 @@ button {
 .field-bottom {justify-content:flex-end;}
 
 .author-self {font-weight:500;}
+
+/* Phone reading layout: compact navigation, natural section flow and clear tap targets. */
+@media(max-width:650px){
+ html {scroll-padding-top:112px;}
+ .void-header {padding:14px 22px 6px;gap:0;}
+ .void-header .identity {font-size:17px;}
+ .void-header .identity span:last-child {display:none;}
+ .void-header nav {margin-top:8px;gap:12px;align-items:center;font-size:11px;}
+ .void-header nav a {display:flex;align-items:center;min-height:44px;}
+ .void-field {display:flex;flex-direction:column;gap:48px;padding:42px 22px 80px;min-height:0;height:auto;}
+ .field-coordinate {display:none;}
+ .field-intro,.field-contents,.field-research {position:relative;inset:auto;width:100%;max-width:none;}
+ .field-intro {order:1;padding-right:34px;}
+ .field-intro h1 {font-size:30px;}
+ .field-intro>p:not(.index-label) {max-width:270px;}
+ .field-contents {order:2;}
+ .field-contents ol {column-gap:16px;}
+ .field-contents a {min-height:44px;font-size:14px;}
+ .field-research {order:3;}
+ .field-research h2 {font-size:28px;max-width:310px;}
+ .field-bottom {bottom:14px;}
+ .crt,.network {display:none;}
+ .disc {width:95px;right:-36px;left:auto;top:20px;}
+ .ring {width:150px;left:-113px;bottom:90px;}
+ .field-lines {opacity:.45;}
+ .archive {padding:48px 22px 0;font-size:18px;}
+ .text-node {scroll-margin-top:0;margin-bottom:72px;}
+ .node-label {position:static;min-height:0;padding:0;margin-bottom:24px;gap:12px;}
+ .archive .index-label {font-size:12px;}
+ .archive .biography-node .node-content>p,.archive .education-list p:not(.index-label) {font-size:18px;line-height:1.75;}
+ .archive .node-content h3 {font-size:24px;line-height:1.35;}
+ .archive .publication-list .authors,.archive .publication-list .venue {font-size:15.5px;line-height:1.65;}
+ .archive .publication-list .authors {margin-bottom:9px;}
+ .archive .publication-list li {padding-bottom:24px;margin-bottom:28px;}
+ .archive .news li {font-size:17px;line-height:1.75;}
+ .archive .post-entry p:not(.index-label) {font-size:18px;}
+ .archive .research-list li {font-size:24px;}
+ .archive .members-list p {font-size:16px;line-height:1.7;}
+ .archive .members-list .member-role {font-size:12px;}
+ .archive .about-socials a {font-size:16px;}
+ .about-socials a,.paper-links a,.contact-links a,.archive .text-link {display:inline-flex;align-items:center;min-height:44px;}
+ .archive .email-reveal .trigger {min-height:44px;font-size:15px;}
+ .about-contact {gap:14px;}
+ .about-fish {float:none;position:relative;display:flex;justify-content:flex-end;margin:0 10px 12px 0;transform:none;}
+ .about-fish img {transform:rotate(10deg);}
+ .members-node {margin-bottom:72px;}
+ .contact-node {padding-bottom:60px;}
+ .void-footer {padding:24px 22px;gap:14px;}
+ .footer-note {line-height:1.8;}
+}
