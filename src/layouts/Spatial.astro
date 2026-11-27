@@ -23,7 +23,7 @@ const t = ui[lang]
 <a class="skip" href="#content">{lang === 'en' ? 'Skip to content' : '跳转到正文'}</a>
 <header class="void-header">
 <a href={localizePath('/', lang)} class="identity" aria-label={name}><span>{home ? 'FZ / INDEX' : name}</span><span>{lang === 'en' ? 'Computer science / Research' : '计算机科学 / 研究'}</span></a>
-<nav aria-label={lang === 'en' ? 'Main navigation' : '主导航'}><a href={localizePath('/',lang)+'#biography'}>{t.about}</a><a href={localizePath('/publications', lang)} aria-current={path.startsWith('/publications') ? 'page' : undefined}>{t.nav.publications}</a><a href={localizePath('/blog', lang)} aria-current={path.startsWith('/blog') ? 'page' : undefined}>{t.nav.blog}</a><a href={localizePath('/cv', lang)} aria-current={path === '/cv' ? 'page' : undefined}><span>Curriculum</span>{' '}<span>Vitae ↗</span></a></nav>
+<nav aria-label={lang === 'en' ? 'Main navigation' : '主导航'}><a href={localizePath('/',lang)+'#biography'}>{t.about}</a><a href={localizePath('/publications', lang)} aria-current={path.startsWith('/publications') ? 'page' : undefined}>{t.nav.publications}</a><a href={localizePath('/blog', lang)} aria-current={path.startsWith('/blog') ? 'page' : undefined}>{t.nav.blog}</a><a href={localizePath('/cv', lang)} aria-current={path === '/cv' ? 'page' : undefined}>CV</a></nav>
 </header>
 <main id="content" class:list={{"document-content": !home}}><slot /></main>
 <footer class="void-footer"><span>© {new Date().getFullYear()} {name}</span><span>{t.footer}</span><a href="#content">{lang === 'en' ? 'Back to top ↑' : '返回顶部 ↑'}</a></footer>
