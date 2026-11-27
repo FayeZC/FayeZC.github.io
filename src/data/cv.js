@@ -221,21 +221,6 @@ export const experience = [
   },
   {
     title: {
-      en: 'Research Assistant, University of Michigan',
-      zh: '密歇根大学 研究助理',
-    },
-    when: { en: 'Aug 2023 – Dec 2023', zh: '2023.08 – 2023.12' },
-    where: { en: 'Ann Arbor and Dearborn, MI', zh: '美国密歇根州安娜堡与迪尔伯恩' },
-    role: { en: 'Web Services Research', zh: 'Web 服务研究' },
-    bullets: [
-      {
-        en: 'Analyzed developer questions about marketplace-managed web services, classifying question topics and answer patterns to inform API documentation and support.',
-        zh: '分析开发者关于平台托管 Web 服务的提问，对问题主题与回答模式进行分类，为改进 API 文档与支持提供依据。',
-      },
-    ],
-  },
-  {
-    title: {
       en: 'Research Assistant, Shandong University',
       zh: '山东大学 研究助理',
     },
