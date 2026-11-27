@@ -173,15 +173,6 @@ button {
   animation: void-drift 18s ease-in-out infinite;
   filter: drop-shadow(0 5px 4px #16161604);
 }
-.artifact span {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font: 9px var(--mono);
-  letter-spacing: 0.06em;
-  color: #62676c;
-}
 .disc {
   width: 180px;
   left: 33%;
@@ -911,9 +902,6 @@ button {
 /* Optical annotations are decorative; the document remains a normal reading flow. */
 .artifact {
   pointer-events: auto;
-}
-.artifact:hover span {
-  display: block;
 }
 .artifact:hover > img {
   animation-play-state: paused;
