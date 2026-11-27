@@ -1,0 +1,29 @@
+---
+import '../styles/spatial.css'
+import { profile } from '../data/site.js'
+import { ui, pick, localizePath, htmlLang } from '../i18n/index.js'
+const { lang = 'en' } = Astro.props
+const name = pick(profile.name, lang)
+const t = ui[lang]
+---
+<!doctype html>
+<html lang={htmlLang[lang]}>
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{name} · {lang === 'en' ? 'Security, privacy & agentic AI' : '安全、隐私与智能体 AI'}</title>
+<meta name="description" content={pick(profile.tagline, lang).join(' ')} />
+<link rel="canonical" href={new URL(localizePath('/', lang), Astro.site)} />
+<link rel="alternate" hreflang="en" href={new URL('/', Astro.site)} /><link rel="alternate" hreflang="zh" href={new URL('/zh/', Astro.site)} /><link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site)} />
+<link rel="icon" href="/sprites/faye-48.png" />
+<meta name="theme-color" content="#ffffff" /><meta property="og:title" content={name} /><meta property="og:description" content={pick(profile.tagline, lang)[0]} /><meta property="og:type" content="website" />
+</head>
+<body class="spatial-home">
+<a class="skip" href="#content">{lang === 'en' ? 'Skip to content' : '跳转到正文'}</a>
+<header class="void-header">
+<a href={localizePath('/', lang)} class="identity" aria-label={name}><span>{name}</span><span>{lang === 'en' ? 'Computer science / Research' : '计算机科学 / 研究'}</span></a>
+<nav aria-label={lang === 'en' ? 'Main navigation' : '主导航'}><a href="#biography">{lang === 'en' ? 'Biography' : '关于'}</a><a href={localizePath('/publications', lang)}>{t.nav.publications}</a><a href={localizePath('/blog', lang)}>{t.nav.blog}</a><a href={localizePath('/cv', lang)}><span>Curriculum</span>{' '}<span>Vitae ↗</span></a></nav>
+</header>
+<main id="content"><slot /></main>
+<footer class="void-footer"><span>© {new Date().getFullYear()} {name}</span><span>{t.footer}</span><a href="#content">{lang === 'en' ? 'Back to top ↑' : '返回顶部 ↑'}</a></footer>
+</body>
+</html>
