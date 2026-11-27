@@ -1094,19 +1094,8 @@ button {
 }
 .archive .biography-node .node-content>p,.archive .education-list p:not(.index-label) {font-size:20px;}
 
-/* Keep the complete upper objects below the sticky header, including parallax. */
-.spatial-art {inset:0;}
-.crt {left:64%;top:clamp(32px,6vh,64px);}
-.disc {left:34%;top:5%;}
-.network {left:52%;top:32%;}
-@media(min-width:651px) and (max-width:1050px){
- .crt {left:59%;top:32px;width:115px;}
- .disc {left:41%;top:6%;width:140px;}
- .network {left:52%;top:32%;}
-}
-@media(max-width:650px){
- .crt {left:auto;right:24px;top:12px;width:76px;}
- .disc {left:auto;right:8px;top:535px;}
- .network {left:10%;top:590px;}
-}
+/* Only the CRT moves: retain the original placement of the other objects. */
+.crt {left:64%;top:calc(90px + clamp(32px,6vh,64px));}
+@media(min-width:651px) and (max-width:1050px){.crt{left:59%;top:122px;width:115px;}}
+@media(max-width:650px){.crt{left:auto;right:24px;top:102px;width:76px;}}
 @media(min-width:1001px) and (max-width:1100px){.about-fish{right:-30px;}}
