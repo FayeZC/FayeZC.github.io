@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 224" role="img" aria-label="Hidee">
+  <!-- The H on a three-row grid: two stems, a crossbar in the middle row, and one cell held back in blue. -->
+  <rect x="0" y="0" width="76" height="224" fill="#0A0A0A"/>
+  <rect x="76" y="75" width="88" height="74" fill="#0A0A0A"/>
+  <rect x="164" y="75" width="76" height="149" fill="#0A0A0A"/>
+  <rect x="164" y="0" width="76" height="75" fill="#1F3BFF"/>
+</svg>

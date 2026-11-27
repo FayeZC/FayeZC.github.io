@@ -1,0 +1,41 @@
+/* Shared editorial pages: the same white spatial identity, with a quiet reading measure. */
+.document-content {max-width:1100px;margin:0 auto;padding:90px 6vw 100px;min-height:75vh;}
+.document-content > section,.cv-text > section {margin-bottom:64px;}
+.document-content h1 {font-size:clamp(36px,5vw,64px);max-width:900px;margin-bottom:34px;}
+.document-content h2 {font-size:28px;}
+.document-content .panel {padding:0;background:none;border:0;box-shadow:none;}
+.document-content .pixel,.post-meta,.pub-venue,.when {font:12px/1.7 var(--mono);color:#58636c;}
+.pubs,.post-list,.edu,.dated {list-style:none;padding:0;margin:0;}
+.pubs li {padding:0 0 36px;margin-bottom:36px;border-bottom:1px solid #dce1e5;}
+.pub-title,.pub-authors,.pub-venue,.pub-links {display:block;}
+.pub-title {font-size:24px;line-height:1.35;letter-spacing:-.025em;margin-bottom:16px;}
+.pub-authors {font-size:15px;line-height:1.8;margin-bottom:10px;}
+.pub-links {margin-top:15px;display:flex;gap:24px;font:12px var(--mono);color:#205bd5;}
+.post-list li {margin:0 0 54px;padding-bottom:40px!important;border-bottom:1px solid #dce1e5!important;}
+.post-link {text-decoration:none;}
+.post-link h2 {max-width:760px;font-size:32px;}
+.post-meta {display:flex;gap:12px 22px;flex-wrap:wrap;}
+.post-meta .tag {color:#247266;}
+.post-summary {max-width:700px;line-height:1.8;}
+.prose {max-width:730px;margin:auto;font-size:18px;line-height:1.85;overflow-wrap:anywhere;}
+.prose h2,.prose h3 {margin-top:2em;scroll-margin-top:130px;}
+.prose img {height:auto;max-width:100%;}
+.prose pre {overflow:auto;background:#f3f6f7;padding:20px;font-size:14px;}
+.prose blockquote {margin:24px 0;border-left:2px solid #247266;padding-left:24px;color:#3d5357;}
+.letterhead {font:12px var(--mono);color:#52616c;margin-bottom:40px;}
+.signoff {display:flex;align-items:center;gap:18px;margin-top:50px;}
+.signoff img {width:45px;image-rendering:pixelated;}
+.button {display:inline-block;padding:8px 0;color:#205bd5;border-bottom:1px solid #a7b9ce;text-decoration:none;font:13px/1.6 var(--mono);}
+.cv-actions {display:flex;gap:24px;flex-wrap:wrap;}
+.cv-pdf object {width:100%;height:1100px;border:1px solid #e8eaec;}
+.cv-text {display:none;}
+[data-no-pdf] .cv-pdf {display:none;}
+[data-no-pdf] .cv-text {display:block;}
+.edu li,.dated li {display:grid;grid-template-columns:1fr auto;gap:8px 24px;margin-bottom:28px;}
+.degree,.where {color:#56616b;}
+.tags {list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:12px 26px;color:#247266;}
+.job {margin-bottom:40px;}.job li{margin-bottom:12px}.job-role,.job-where{color:#56616b;}
+.skills {display:grid;grid-template-columns:140px 1fr;gap:20px;}.skills dd{margin:0;}
+.stub img {width:96px;image-rendering:pixelated;}
+@media(max-width:650px){.document-content{padding:45px 24px 70px;}.document-content h1{font-size:36px;}.pub-title{font-size:22px;}.prose{font-size:16px;}.post-link h2{font-size:27px;}.cv-pdf{display:none;}.cv-text{display:block;}.edu li,.dated li{display:block;}.edu li span,.dated li span{display:block;}.skills{grid-template-columns:1fr;gap:8px;}.skills dd{margin-bottom:20px;}}
+@media print{.void-header,.void-footer,.cv-actions,.cv-pdf{display:none!important}.cv-text{display:block}.document-content{padding:0;max-width:none}}

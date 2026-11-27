@@ -147,6 +147,8 @@ export const news = [
     },
     // Optional link after the text, shown as its own short line.
     link: { href: 'https://hidee.net', label: 'hidee.net' },
+    // Original brand mark from https://hidee.net/static/brand/hidee-mark.svg
+    logo: { src: '/logos/hidee-mark.svg', alt: { en: 'Hidee logo', zh: 'Hidee 标志' } },
   },
   {
     date: '2026-10',

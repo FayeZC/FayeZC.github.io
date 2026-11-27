@@ -26,3 +26,13 @@ Full biography, all current research interests, education, selected publications
 `npm run build` builds all existing routes. With preview running on port 4321, run `node scripts/check-spatial.mjs`. Override the server with `ORIGIN=http://localhost:PORT` if needed. Screenshots and JSON results go to `output/white-void/` (local review artifacts).
 
 The motion control pauses decorative CSS movement and pointer parallax. OS reduced-motion preferences override animation automatically. Coarse-pointer devices get static object poses. The page remains readable and navigable with JavaScript disabled, while the existing email component provides its original GitHub fallback. No analytics, third-party fonts, or external requests were added to the homepage.
+
+## Composition refinement
+
+The opening viewport includes an explicit contents list. Separate text and object clusters retain the dispersed composition; isolated registration marks replace the long connecting perspective line. Darker chrome and readable labels preserve contrast. Existing section names (About, Education, Research Interests, News, Members and Blog) use the shared translations.
+
+The added Projects section was removed on request. Hidee and OPAL remain solely in News with their original announcement text, links and logos.
+
+## Saved revision — 2026-11-27
+
+Shared spatial styling now covers Publications, Blog and CV. News follows About without rewriting announcements. Navigation and section labels stay visible while scrolling. Photos retain original colour. The opening scene uses neutral text with blue hover states; the smaller clownfish sticker sits to the right of About at 10 degrees. Ne/Mo uses #FE6510, sampled from the dominant orange in the original sprite. Email occupies its own row above social links. This is a local review version, not a deployment.
