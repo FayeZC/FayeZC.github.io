@@ -1099,11 +1099,12 @@ button {
   margin:48px 0 0 -24px;
   filter:contrast(1.12);
   transform-origin:50% 50%;
-  animation:publication-cube-turn 48s ease-in-out infinite;
+  animation:publication-cube-float 12s ease-in-out infinite;
 }
-@keyframes publication-cube-turn {
-  0%,100% {transform:perspective(850px) rotateY(-12deg) rotateX(5deg) rotateZ(-3deg);}
-  50% {transform:perspective(850px) rotateY(14deg) rotateX(-6deg) rotateZ(3deg);}
+/* Continuous rise and fall: slow to a turning point without a hold. */
+@keyframes publication-cube-float {
+  0%,100% {transform:translate3d(-3px,12px,0) rotate(-2deg);animation-timing-function:cubic-bezier(.37,0,.63,1);}
+  50% {transform:translate3d(4px,-22px,0) rotate(2deg);animation-timing-function:cubic-bezier(.37,0,.63,1);}
 }
 .motion-paused .publication-cube {animation-play-state:paused;}
 @media(min-width:651px) and (max-width:1000px){.publication-cube{width:220px;margin-left:-18px;}}
