@@ -26,7 +26,7 @@ const selected = publications.filter((p) => p.selected !== false)
               {p.authors.map((a, i) => (
                 <>
                   {i > 0 && ', '}
-                  {a === me ? <strong>{a}</strong> : a}
+                  {a === me ? <strong class="author-self">{a}</strong> : a}
                 </>
               ))}
             </span>

@@ -121,7 +121,7 @@ const written = publications
                 {p.authors.map((a, i) => (
                   <>
                     {i > 0 && ', '}
-                    {a === me ? <strong>{a}</strong> : a}
+                    {a === me ? <strong class="author-self">{a}</strong> : a}
                   </>
                 ))}
               </span>

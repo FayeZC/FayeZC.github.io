@@ -1122,3 +1122,5 @@ button {
 @media(prefers-reduced-motion:reduce),(pointer:coarse){.publication-cube{animation:none;}}
 
 .field-bottom {justify-content:flex-end;}
+
+.author-self {font-weight:500;}
