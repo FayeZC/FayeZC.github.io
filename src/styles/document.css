@@ -39,3 +39,21 @@
 .stub img {width:96px;image-rendering:pixelated;}
 @media(max-width:650px){.document-content{padding:45px 24px 70px;}.document-content h1{font-size:36px;}.pub-title{font-size:22px;}.prose{font-size:16px;}.post-link h2{font-size:27px;}.cv-pdf{display:none;}.cv-text{display:block;}.edu li,.dated li{display:block;}.edu li span,.dated li span{display:block;}.skills{grid-template-columns:1fr;gap:8px;}.skills dd{margin-bottom:20px;}}
 @media print{.void-header,.void-footer,.cv-actions,.cv-pdf{display:none!important}.cv-text{display:block}.document-content{padding:0;max-width:none}}
+
+/* Match the more comfortable reading scale without changing the homepage hero. */
+.document-content {font-size:20px;}
+.document-content h2 {font-size:35px;}
+.document-content h3 {font-size:26px;}
+.document-content .pub-title {font-size:30px;}
+.document-content .pub-authors {font-size:18.75px;}
+.document-content .pixel,.document-content .post-meta,.document-content .pub-venue,.document-content .when,.document-content .pub-links,.document-content .letterhead {font-size:15px;}
+.document-content .post-link h2 {font-size:40px;}
+.document-content .prose {font-size:22.5px;line-height:1.8;max-width:780px;}
+.document-content .prose pre {font-size:17.5px;}
+.document-content .button {font-size:16.25px;}
+@media(max-width:650px){
+ .document-content .pub-title {font-size:27.5px;}
+ .document-content .post-link h2 {font-size:33.75px;}
+ .document-content .prose {font-size:20px;}
+ .document-content h2 {font-size:30px;}
+}

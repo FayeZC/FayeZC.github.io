@@ -1066,3 +1066,30 @@ button {
 @media(min-width:651px) and (max-width:1050px){.network{width:124px;left:53%;top:26%;}}
 @media(max-width:650px){.network{width:107px;left:10%;top:590px;}}
 @media(prefers-reduced-motion:reduce),(pointer:coarse){.artifact > img,.network .satellite-orbit{animation:none!important;}}
+
+/* Reading scale: approximately 125%, scoped below the opening spatial scene. */
+.archive {font-size:20px;}
+.archive .index-label {font-size:12.5px;}
+.archive .node-content p {line-height:1.8;}
+.archive .node-content h3 {font-size:26px;}
+.archive .text-link,.archive .paper-links {font-size:14px;}
+.archive .publication-list .authors,.archive .publication-list .venue {font-size:16.25px;}
+.archive .post-entry p:not(.index-label) {font-size:18.75px;}
+.archive .news li {font-size:17.5px;line-height:1.8;grid-template-columns:90px 1fr;gap:24px;margin-bottom:38px;}
+.archive .news time {font-size:13.75px;}
+.archive .members-list h3 {font-size:22.5px;}
+.archive .members-list p {font-size:17.5px;}
+.archive .members-list .member-role {font-size:13.75px;}
+.archive .contact-node > p:not(.index-label) {font-size:18.75px;}
+.archive .contact-links {font-size:15px;}
+.archive .about-socials a {font-size:17.5px;}
+.archive .email-reveal .trigger {font-size:16.25px;}
+.archive .research-list li {font-size:clamp(24px,2.7vw,35px);}
+@media(max-width:650px){
+ .archive .news li {grid-template-columns:1fr;gap:6px;}
+ .archive .members-list article {grid-template-columns:80px minmax(0,1fr);gap:18px;}
+ .archive .members-list article>img {width:80px;height:80px;}
+ .archive .node-content h3 {font-size:26px;}
+ .archive .about-socials {gap:14px 20px;}
+}
+.archive .biography-node .node-content>p,.archive .education-list p:not(.index-label) {font-size:20px;}
